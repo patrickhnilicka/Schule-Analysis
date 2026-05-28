@@ -774,24 +774,24 @@ Allgemein erhält man die durchschnittliche Änderungsrate einer Funktion $f$ im
 \[
     \frac{f(b)-f(a)}{b-a}
 \]
-oder etwas anders geschrieben, wenn wir von einem Punkt $x_0$ ausgehen und das Intervall $[x_0, x_0 + \Delta x]$ betrachten:
+oder etwas anders geschrieben, wenn wir von einem Punkt $x_0$ ausgehen und das Intervall $[x_0, x_0 + h]$ betrachten:
 \begin{align}
     \label{deltaschreibweise}
-    \frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
+    \frac{f(x_0+h)-f(x_0)}{h}
 \end{align}
-Diese durchschnittliche Änderungsrate beschreibt, wie stark sich eine Grösse \emph{im Durchschnitt} innerhalb des Intervalls $[x_0, x_0 + \Delta x]$ verändert.
+Diese durchschnittliche Änderungsrate beschreibt, wie stark sich eine Grösse \emph{im Durchschnitt} innerhalb des Intervalls $[x_0, x_0 + h]$ verändert.
 
 Das Problem dabei ist:
 Sie sagt noch nichts darüber aus, wie gross die Änderung \emph{in einem bestimmten Moment} ist. Innerhalb des betrachteten Intervalls könnte sich die Grösse nämlich unterschiedlich verändern.
 
-Je kleiner das Intervall $[x_0, x_0 + \Delta x]$ wird, desto genauer beschreibt die durchschnittliche Änderungsrate die Änderung der Grösse in der Nähe von $x_0$. Wenn wir das Intervall immer weiter verkleinern, nähern wir uns einer bestimmten Zahl an, die die Änderung der Grösse genau zum Zeitpunkt $x_0$ beschreibt.
+Je kleiner das Intervall $[x_0, x_0 + h]$ wird, desto genauer beschreibt die durchschnittliche Änderungsrate die Änderung der Grösse in der Nähe von $x_0$. Wenn wir das Intervall immer weiter verkleinern, nähern wir uns einer bestimmten Zahl an, die die Änderung der Grösse genau zum Zeitpunkt $x_0$ beschreibt.
 
 Diese Zahl nennen wir die \textbf{momentane Änderungsrate} oder auch die \textbf{Ableitung} von $f$ an der Stelle $x_0$.
 
 \begin{example}
     Wir lösen uns jetzt von physikalischen Beispielen und betrachten ganz allgemein die Funktion $f(x)=-2x^2+1$. Auch von der können wir die durchschnittliche Änderungsrate in einem Intervall berechnen, zum Beispiel im Intervall $[1, 3]$:
     $$\frac{f(3)-f(1)}{3-1}=\frac{-17 - (-1)}{2}=-8$$
-    In der Schreibweise $[x_0,x_0+\Delta x]$ des Intervalls (siehe \eqref{deltaschreibweise}) ist $x_0=1$ und $\Delta x =2$.
+    In der Schreibweise $[x_0,x_0+h]$ des Intervalls (siehe \eqref{deltaschreibweise}) ist $x_0=1$ und $h =2$.
 \end{example}
 % \begin{center}
 %     \begin{tikzpicture}[
@@ -883,9 +883,9 @@ Diese Zahl nennen wir die \textbf{momentane Änderungsrate} oder auch die \textb
 
 \begin{deff}
     [Differenzenquotient]{}
-    Zu einer gegebenen Funktion und zwei verschiedenen Stellen $x_0$ und $x_0+\Delta x$ heisst der Term:
+    Zu einer gegebenen Funktion und zwei verschiedenen Stellen $x_0$ und $x_0+h$ heisst der Term:
     \[
-        \frac{f(x_0+\Delta x)-f(x_0 )}{\Delta x}
+        \frac{f(x_0+h)-f(x_0)}{h}
     \]
     Differenzenquotient.
 
@@ -895,23 +895,23 @@ Diese Zahl nennen wir die \textbf{momentane Änderungsrate} oder auch die \textb
     %     \includegraphics[width = 0.5 \textwidth]{im/differenzenquo.png}
     % \end{center}
     % 
-    Häufig wird statt $\Delta x$ auch der Buchstabe $h$ (für horizontaler Abstand) verwendet. Der Differenzenquotient lautet dann:
-    \[
-        \frac{f(x_0+h)-f(x_0 )}{h}
-    \]
+    % Häufig wird statt $\Delta x$ auch der Buchstabe $h$ (für horizontaler Abstand) verwendet. Der Differenzenquotient lautet dann:
+    % \[
+    %     \frac{f(x_0+h)-f(x_0 )}{h}
+    % \]
     Der Differenzenquotient entspricht der durchschnittlichen Änderungsrate der Funktion $f$ im Intervall $[x_0, x_0+h]$.
 \end{deff}
 
 Je nach Anwendung kann der Differenzenquotient die \emph{durchschnittliche} Geschwindigkeit einer Sprinterin, die \emph{durchschnittliche} Beschleunigung einer Rakete oder die \emph{durchschnittliche} Abnahmerate der Wirkstoffkonzentration pro Zeiteinheit eines Medikaments darstellen.
 
-Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungsrate interessiert, bedient man sich einer Methode, die wir in den Einführungsaufgaben mehrfach angewendet haben: Wir lassen $\Delta x$ bzw. $h$ immer kleiner werden und untersuchen das Grenzverhalten des Differenzenquotienten für $\Delta x\to 0$ bzw. $h\to 0$.
+Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungsrate interessiert, bedient man sich einer Methode, die wir in den Einführungsaufgaben mehrfach angewendet haben: Wir lassen $h$ immer kleiner werden und untersuchen das Grenzverhalten des Differenzenquotienten für $h\to 0$.
 
-\begin{deff}[Differentialquotient]{}
+\begin{deff}[Differenzialquotient]{}
     Falls der Grenzwert
     \[
         \lim\limits_{h\to 0} \frac{f(x_0+h)-f(x_0 )}{h}
     \]
-    existiert, so nennt man ihn Differentialquotient oder (erste) Ableitung der Funktion an der Stelle $x_0$.
+    existiert, so nennt man ihn Differenzialquotient oder (erste) Ableitung der Funktion an der Stelle $x_0$.
     % \begin{center}
     %     \includegraphics[width = 0.5 \textwidth]{im/differentialquo.png}
     % \end{center}
@@ -922,7 +922,7 @@ Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungs
     \]
     Gesprochen: „$f$ Strich von $x_0$“ oder „$df$ nach $dx$ an der Stelle $x_0$“.
 
-    Die Ableitung der Funktion an der Stelle $x_0$ entspricht der Steigung der Tangente an den Graphen im Punkt $ (x_0, f(x_0)) $.
+    Die Ableitung der Funktion an der Stelle $x_0$ entspricht der momentanen Änderungsrate der Funktion $f$ an der Stelle $x_0$.
 
 
 
@@ -930,7 +930,7 @@ Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungs
 
 
 \begin{example}
-    {Berechnung des Differentialquotienten}{}
+    {Berechnung des Differenzialquotienten}{}
     Gegeben sei die Funktion $f(x)=\frac{1}{2}x^2-x$. Gesucht ist die Ableitung von $f$ an der Stelle $x_0=5$
 
     \kariert{26}
@@ -977,7 +977,7 @@ Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungs
           \begin{enumerate}
               \item Berechnen Sie \( f'(0) \). Welche Eigenschaft des Graphen wird durch das Resultat verdeutlicht?
               \item Berechnen Sie \( f'(2) \).
-              \item Bestimmen Sie \( f'(-2) \). Entweder mit dem Differentialquotient oder indem Sie eine Eigenschaft der Parabel verwenden\dots
+              \item Bestimmen Sie \( f'(-2) \). Entweder mit dem Differenzialquotient oder indem Sie eine Eigenschaft der Parabel verwenden\dots
           \end{enumerate}
 
     \item Zeichnem Sie den Graphen der Funktion \( f(x) = \frac{1}{3}x - 1 \).\\
@@ -996,7 +996,7 @@ Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungs
 
     \item \textbf{Achtung Doppelbrüche!}\\
           Sei \( f(x) = \frac{1}{x + 1} \). Berechne \( f'(1) \).
-
+          x
 \end{enumerate}
 
 \clearpage
