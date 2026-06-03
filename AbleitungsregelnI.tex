@@ -1,0 +1,280 @@
+\subsection{Erste Ableitungsregeln}
+Um für jede Funktion nicht immer den komplizierten Differenzialquotienten berechnen zu müssen, suchen wir nach allgemeinen Ableitungsregeln. Sobald wir diese Regeln kennen, können wir Ableitungen viel schneller und einfacher berechnen, ohne jedes Mal einen aufwendigen Grenzwertprozess durchführen zu müssen.
+
+\subsubsection{Regelmässigkeiten in der Ableitung erkunden}
+\begin{enumerate}
+    \item Potenzfunktionen:
+          \begin{enumerate}
+              \item Verwenden Sie den Differentialquotienten, um die folgenden Funktionen abzuleiten:
+                    \begin{enumerate}
+                        \item $f(x)=x$
+                        \item $f(x)=x^2$
+                        \item $f(x)=x^3$
+                    \end{enumerate}
+              \item Welche Vermutung haben Sie bezüglich der Ableitung von Funktionen der Form $f(x)=x^n$? \label{item:vermutungPotenz}
+              \item Testen Sie die Vermutung auch an der Funktion $f(x)=x^0=1$.
+          \end{enumerate}
+    \item  Bestimmen Sie die Ableitung der Funktion $f(x)=x+x^2$ mit dem Differenzialquotienten. Was vermuten Sie bezüglich der Ableitung einer Summe von zwei Funktionen?
+    \item Bestimmen Sie die Ableitung der Funktion $f(x)=7\cdot x^2$ mit dem Differenzialquotienten. Was vermuten Sie bezüglich der Ableitung eines Vielfachen einer Funktion?
+    \item  Erklären Sie, wie man aufgrund der Erkenntnisse aus den Aufgaben 1. - 3. die Ableitung der Funktion $f(x)=5x^2-2x+3$ leicht angeben kann.
+    \item Erklären Sie in Worten, woher der Faktor $n$ bei der Ableitung von $f(x)=x^n$ herkommt.
+    \item \emph{Challenge}: Berechnen Sie auch die Ableitung von $f(x)=\frac{1}{x}$ und $f(x)=\sqrt{x}$. Passt das Resultat zur Vermutung aus Aufgabe 1. \ref{item:vermutungPotenz}?
+\end{enumerate}
+\clearpage
+Die sogenannten Polynomfunktionen bilden eine wichtige Klasse von Funktionen.
+\begin{deff}
+    [Polynomfunktion]{}
+    Eine Polynomfunktion ist eine Funktion der Form
+    $$f(x)=a_n x^n+a_{n-1} x^{n-1}+\cdots + a_2 x^2+a_1 x+a_0,\quad a_n\neq0$$
+    wobei $n\in \N$ der Grad der Funktion ist.
+    Die Zahlen $a_0,a_1,\ldots ,a_n \in \R$ nennt man die Koeffizienten des Polynoms.
+\end{deff}
+
+\begin{example}
+    Die Funktion $f(x)=5x^2-2x+3$ ist demnach eine Funktion 2. Grades mit den Koeffizienten $a_2=5, a_1=-2$ und $a_0=3$.
+\end{example}
+
+Jede Polynomfunktion ist gewissermassen eine Summe von Vielfachen von Potenzfunktionen. Zum Beispiel kann die Funktion $f(x)=5x^2-2x+3$ als die Summe der Funktionen $x\mapsto 5\cdot x^2, x\mapsto -2\cdot x$ und $x\mapsto 3\cdot x^0$ angesehen werden. Wenn man über die Ableitung von Potenzfunktionen, von der Summe zweier Funktionen und von dem Vielfachen einer Funktion Bescheid weiss, kann man damit alle Polynomfunktionen ableiten! Wir benötigen also die folgenden drei Sätze:
+\begin{theo}
+    [Die Ableitung von Potenzfunktionen]{}\label{satz:AbleitungPotenzfu}
+    Sei $n\in \mathbb{R}$. Dann gilt
+    $$\frac{d}{dx} x^n = n\cdot x^{n-1}$$
+\end{theo}
+
+\begin{theo}
+    [Die Ableitung der Summe zweier Funktionen]{}
+    Seien $f$ und $g$ zwei differenzierbare Funktionen. Dann gilt
+    $$\frac{d}{dx} \left(f(x)+g(x)\right) = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)$$
+\end{theo}
+
+\begin{theo}
+    [Die Ableitung eines Vielfachen einer Funktion]{}
+    Sei $f$ eine differenzierbare Funktion und $c\in \mathbb{R}$ eine Konstante. Dann gilt
+    $$\frac{d}{dx}\left(c\cdot f(x)\right) = c\cdot \frac{d}{dx} f(x)$$
+\end{theo}
+
+
+Wie kann man diese drei Sätze in der Praxis anwenden?
+\begin{example}
+    Zur Illustration betrachten wir erneut unsere Funktion $f(x)=5x^2-2x+3$. Das Bestimmen der Ableitung geht nun leicht. Für die Ableitungen der vorkommenden Potenzfunktionen gilt:
+    \begin{itemize}
+        \item $\frac{d}{dx} (x^2 )=2x$
+        \item $\frac{d}{dx}(x)=1$
+        \item $\frac{d}{dx} (x^0 )=0$
+    \end{itemize}
+    und somit:
+    $$ f(x)=5\cdot x^2-2\cdot x+3\cdot x^0 \Rightarrow f'(x)=5\cdot 2x-2\cdot 1+3\cdot 0=10x-2$$
+\end{example}
+
+Denken Sie daran zurück, wie aufwendig die Berechnung der Ableitung mit dem Grenzwert des Differenzenquotienten war!
+\begin{example}
+    Die Ableitung von $g(x)=2x^3+4x^2-4x+12$ ist:
+    %$$g'(x)=2\cdot 3x^2+4\cdot 2x-4+0=6x^2+8x-4$$
+    \kariert{4}
+\end{example}
+\begin{example}
+    Aber Achtung: die letzte der drei Regeln funktioniert nur, wenn der Faktor $c$ eine Konstante ist! So ist die Ableitung der Funktion $h(x)=x^2 \cdot (2x-1)$ NICHT $h'(x)=x^2\cdot 2$ und auch NICHT $h'(x)=2x\cdot 2$. Stattdessen muss man in diesem Fall den Funktionsterm von $h$ zuerst ausmultiplizieren:
+    $$ h(x)=x^2(2x-1)=2x^3-x^2 \Rightarrow h'(x)=6x^2-2x$$
+\end{example}
+Die Regel \ref*{satz:AbleitungPotenzfu} für die Ableitung von Potenzfunktionen gilt nicht nur dann, wenn der Exponent eine natürliche Zahl ist. Damit lassen sich auch die Kehrwert- und Wurzelfunktionen ableiten:
+\begin{example}
+    {Die Ableitung der Kehrwert- und der Wurzelfunktionen}{}
+    \begin{itemize}
+        \item Die Ableitung der Funktion $f(x)=\sqrt{x} = x^{\frac{1}{2}}$ ist
+              $$f'(x)=\frac{1}{2}x^{\frac{1}{2}-1}=\frac{1}{2}x^{-\frac{1}{2}}=\frac{1}{2\sqrt{x}}$$
+        \item Die Ableitung der Kehrwertfunktion $g(x)=\frac{1}{x}=x^{-1}$ ist
+              $$ g'(x)=-1\cdot x^{-1-1}=-1\cdot x^{-2}=-\frac{1}{x^2}$$
+        \item Die Ableitung von anderen Wurzelfunktionen oder Potenzfunktionen mit negativen Exponenten kann analog berechnet werden. Zum Beispiel hat $h(x)=\sqrt[3]{x}+\frac{5}{x^6} = x^{\frac{1}{3}}+ 5\cdot x^{-6}$ die Ableitung
+              $$h'(x)=\frac{1}{3}x^{\frac{1}{3}-1}+5\cdot(-6)\cdot x^{-6-1} = \frac{1}{3}x^{-\frac{2}{3}}-30\cdot x^{-7} = \frac{1}{3\sqrt[3]{x^2}}-\frac{30}{x^7}$$
+    \end{itemize}
+
+\end{example}
+\clearpage
+\subsubsection{Übungen}
+\begin{enumerate}
+    \item Berechnen Sie die 1. Ableitung \( f': x \mapsto y \) der Funktion \( f \colon x \mapsto y \) mithilfe der Ableitungsregeln.
+          \begin{enumerate}
+              \item \( y = 4x^2 - 7x + 3 \)
+              \item \( y = \dfrac{1}{2}x^3 - 4 \)
+              \item $ y = -3x+5$
+                    % \item \( y = 13x^4 + 9x^3 - 15 \)
+                    % \item \( y = \frac{9}{2}x^8 + 16x^5 - 23 \)
+              \item \( y = x^4 \cdot (2x - 3)^2 \)
+                    % \item \( y = x^2 \cdot (x - 1)^3 \)
+              \item \( y = \dfrac{9}{x^2} \)
+                    % \item \( y = 1.25x^{\frac{1}{4}} - 1.5x^{\frac{2}{3}} \)
+                    % \item \( y = \sqrt[3]{x} + \sqrt[5]{x} \)
+              \item \( y = \sqrt{x} - 6\sqrt[3]{x} \)
+                    %\item \( y = (x + 3) (3x - 2)^2 \)
+              \item $y= x\cdot \sqrt{x}$
+
+          \end{enumerate}
+
+    \item Wie heisst die Gleichung der Tangente im Punkt \( P(1, y_P) \) an den Graphen der Funktion \( f \colon x \mapsto y \)?
+          \begin{enumerate}
+              \item \( y = 3x^3 - 8x + 10 \)
+              \item  $ y= \sqrt{x}$
+                    % \item \( y = 3x^5 - 8x^3 + 14x - 7 \)
+                    % \item \( y = -4x^7 - 16x^6 + 7x \)
+          \end{enumerate}
+
+    \item In welchen Punkten hat der Graph der Funktion \( f \colon x \mapsto y \) Tangenten, die parallel zur \( x \)-Achse verlaufen?
+          \begin{enumerate}
+              \item \( y = x^3 - 3x^2 - 9x + 7 \)
+              \item \( y = x^4 + 4x^3 + 10 \)
+                    % \item \( y = \frac{1}{5}x^5 - x^3 -4x +\frac{2}{5} \)
+          \end{enumerate}
+
+          %   \item In welchen Punkten hat der Graph der Funktion \( f \colon y = x^3 - 6x^2 + 2x + 8 \) die Steigung \( m = 2 \)?
+    \item Die momentane Geschwindigkeit eines Teilchens zur Zeit $t$ ist gegeben durch die Funktion \( v(t) = t^3 - 6t^2 + 2t + 8 \) [$m/s$]. Zu welchen Zeitpunkten beträgt die momentane Beschleunigung \( a = 2 \) [$m/s^2$]?
+
+    \item Bestimmen Sie \( a \) so, dass beim Graphen der Funktion \( f \colon y = x^4 - 7x^2 + ax \) bei \( x = 2 \) die Steigung \( m = 3 \) beträgt.
+
+    \item Der Graph der Funktion \( f \colon y = ax^3 + bx \) hat im Punkt \( P(2, -10) \) die Steigung \( m = 3 \). Berechnen Sie \( a \) und \( b \).
+
+          %   \item Für welche Werte von \( a \) berührt die Parabel \( p \) die \( x \)-Achse?
+          %   \begin{enumerate}
+          %     \item \( p \colon y = x^2 - 2ax - 7a \)
+          %     \item \( p \colon y = ax^2 + ax - 3 \)
+          %     \item \( p \colon y = 2x^2 - ax^2 + 2a + 10 \)
+          %   \end{enumerate}
+\end{enumerate}
+\clearpage
+\subsubsection*{Lösungen:}
+\begin{enumerate}
+    \item \textbf{Ableitungen}
+          \begin{enumerate}
+              \item \( y' = 8x - 7 \)
+              \item \( y' = \frac{3}{2}x^2 \)
+              \item \( y' = -3 \)
+              \item \( y' = 24x^5-60x^4+36x^3 \)
+              \item \( y' = -\dfrac{18}{x^3} \)
+              \item \( y' = \frac{1}{2} x^{-\frac{1}{2} } - 2x^{-\frac{2}{3}} = \frac{1}{2\sqrt{x}} - \frac{2}{\sqrt[3]{x^2}} \)
+                    %\item \( y' = (x + 3)(18x - 12) + (3x - 2)^2 \)
+              \item \( y' = \dfrac{3}{2} \sqrt{x} \)
+          \end{enumerate}
+
+    \item \textbf{Tangente im Punkt \( P(1, y_P) \)}
+          \begin{enumerate}
+              \item \( y = x + 4 \)
+              \item \( y = \frac{1}{2} x + \frac{1}{2} \)
+          \end{enumerate}
+
+    \item \textbf{Tangenten parallel zur \( x \)-Achse}
+          \begin{enumerate}
+              \item \( P_1 =( -1, 12) \quad \text{und} \quad P_2 = (3,-20) \)
+              \item \( P_1 = (-3,-17) \quad \text{und} \quad P_2= (0, 10) \)
+          \end{enumerate}
+
+          %   \item \textbf{Steigung \( m = 2 \) bei \( f(x) = x^3 - 6x^2 + 2x + 8 \)}  
+          %   Lösung: \( P_1 = (0,8) \quad \text{und} \quad P_2 = (4, -16) \)
+    \item \textbf{Beschleunigung \( a = 2 \) bei \( v(t) = t^3 - 6t^2 + 2t + 8 \)}
+          Lösung: \( t_1 = 0 \quad \text{und} \quad t_2 = 4 \)
+
+    \item \textbf{Bestimme \( a \) für Steigung \( m = 3 \) bei \( x = 2 \)}
+          Lösung: \( a = -1 \)
+
+    \item \textbf{Bestimme \( a \) und \( b \) für \( f(x) = ax^3 + bx \) mit \( f(2) = -10 \), \( f'(2) = 3 \)}
+          Lösung: \( a = 1, \quad b = -9 \)
+\end{enumerate}
+\clearpage
+\subsubsection{Beweise der Ableitungsregeln}
+
+Die Ableitungsregeln lassen sich damit beweisen, dass man die entsprechenden Differenzialquotienten umformt und die Grenzwertsätze verwendet. Die Beweise sind etwas technisch, aber die Mühe lohnt sich: Dank diesen Umformungen werden wir in Zukunft alle Polynomfunktionen ohne Einsatz des Differenzialquotienten ableiten können!
+
+Der Satz \ref*{satz:AbleitungPotenzfu} zur Ableitung von Potenzfunktionen beweisen wir an diese Stelle nur für den Fall, dass der Exponent $n$ eine natürliche Zahl ist. Die anderen Fälle könnte man zwar durchaus auch mit dem Differentialquotienten beweisen, aber später werden wir eine Methode entwickeln, mit der es einiges eleganter geht.
+
+\emph{Behauptung 1:} Sei $n\in \N$. Dann gilt
+$\frac{d}{dx} x^n = n\cdot x^{n-1}$
+\begin{proof}
+    Mit dem Differentialquotienten erhält man:
+    $$\frac{d}{dx} x^n=\lim_{h\rightarrow0}\frac{(x+h)^n-x^n}{h}$$
+    Damit man den Grenzwert bestimmen kann, muss man in dieser Situation den Zähler so lange umformen, bis man ein $h$ ausklammern kann, um anschliessend zu kürzen. Zur Vereinfachung von $(x+h)^n$ verwenden wir das Pascalsche Dreieck:
+
+    \[
+        \begin{array}{lccccccccc}
+            n=0 &   &   &                    &                    & 1                  &                    &   &   &   \\
+            n=1 &   &   &                    & 1                  &                    & \textcolor{red}{1} &   &   &   \\
+            n=2 &   &   & 1                  &                    & \textcolor{red}{2} &                    & 1 &   &   \\
+            n=3 &   & 1 &                    & \textcolor{red}{3} &                    & 3                  &   & 1 &   \\
+            n=4 & 1 &   & \textcolor{red}{4} &                    & 6                  &                    & 4 &   & 1
+        \end{array}
+    \]
+
+    Offensichtlich gilt:
+    $$(x+h)^n = x^n + \textcolor{red}{n}\cdot x^{n-1}h + \text { Terme mit } h^2 \text{ oder höher}$$
+
+    % Der zweite Eintrag in der $n$-ten Zeile des Dreiecks entspricht dem Koeffizient von $h^{n-1}$ im Term $(x+h)^n$.  
+
+
+    Für die Ableitung der Potenzfunktion folgt:
+    \begin{align*}
+        \frac{d}{dx} x^n & = \lim_{h\rightarrow 0}\frac{\left( x^n + n\cdot x^{n-1}h + \text { Terme mit } h^2 \text{ oder höher} \right)- x^n}{h}
+    \end{align*}
+
+    Die beiden Summanden in $x^n$ heben sich auf. Beim übriggebliebenen Zähler kann man anschliessend $h$ ausklammern:
+    \begin{align*}
+        \frac{d}{dx} x^n & = \lim_{h\rightarrow 0} \frac{h \left(n\cdot x^{n-1} + \text { Terme mit } h^1 \text{ oder höher} \right)}{h} \\
+                         & = \lim_{h\rightarrow 0} \left(n\cdot x^{n-1} + \text { Terme mit } h^1 \text{ oder höher}  \right)            \\
+                         & = n x^{n-1}
+    \end{align*}
+
+
+
+
+
+
+    % Damit man den Grenzwert bestimmen kann, muss man in dieser Situation den Zähler so lange umformen, bis man ein $h$ ausklammern kann, um anschliessend zu kürzen. Zur Vereinfachung von $(x+h)^n$ verwenden wir das Pascalsche Dreieck, bzw. den binomischen Lehrsatz:
+    % \begin{align*}
+    %     (x+h)^n = \sum_{k=0}^n {n \choose k} x^{n-k} h^k
+    % \end{align*}
+
+    % Zur Erinnerung: Die Binomialkoeffizienten ${n\choose 0}, {n\choose 1}, {n\choose 2} , \cdots {n\choose n-1} , {n\choose n}$ entsprechen genau den Zahlen in der $n$-ten Zeile des pascalschen Dreieck.
+
+    % Für die Ableitung der Potenzfunktion folgt:
+    % \begin{align*}
+    %     \frac{d}{dx} x^n &= \lim_{h\rightarrow 0}\frac{\left({n\choose 0} x^n + {n\choose 1} x^{n-1}h + {n\choose 2} x^{n-2}h^2 + \cdots {n\choose n-1} x h^{n-1} + {n\choose n} h^n \right)- x^n}{h} 
+    % \end{align*}
+
+    % Da ${n\choose 0}=1$ ist, heben sich die beiden Summanden in $x^n$ auf. Beim übriggebliebenen Zähler kann man anschliessend $h$ ausklammern:
+    % \begin{align*}
+    %     \frac{d}{dx} x^n &= \lim_{h\rightarrow 0} \frac{h \left({n\choose 1} x^{n-1} + {n\choose 2} x^{n-2}h + \cdots {n\choose n-1} x h^{n-2} + {n\choose n} h^{n-1} \right)}{h} \\
+    %                     &= \lim_{h\rightarrow 0} \left({n\choose 1} x^{n-1} + {n\choose 2} x^{n-2}h + \cdots {n\choose n-1} x h^{n-2} + {n\choose n} h^{n-1} \right) \\
+    %                     &= {n\choose 1} x^{n-1}
+    % \end{align*}
+
+    % Da schliesslich ${n\choose 1}=n$ ist, folgt die Behauptung.
+\end{proof}
+
+\emph{Behauptung 2:} Seien $f$ und $g$ zwei differenzierbare Funktionen. Dann gilt
+$$\frac{d}{dx} \left(f(x)+g(x)\right) = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)$$
+\begin{proof}
+    Sei $s(x)=f(x)+g(x)$ die Summe der beiden Funktionen. Für die Ableitung von s gilt:
+    \begin{align*}
+        \frac{d}{dx}s(x) & = \lim_{h\rightarrow0} \frac{s(x+h)-s(x)}{h}               \\
+                         & = \lim_{h\rightarrow0} \frac{f(x+h)+g(x+h)-(f(x)+g(x))}{h}
+    \end{align*}
+    Durch geschicktes Umformen lassen sich die $f$-Terme von den $g$-Termen trennen:
+    \begin{align*}
+        \frac{d}{dx} s(x) & = \lim_{h\rightarrow0} \frac{f(x+h)-f(x) +g(x+h)-g(x)}{h}                       \\
+                          & = \lim_{h\rightarrow0}\left(\frac{f(x+h)-f(x)}{h} +\frac{g(x+h)-g(x)}{h}\right)
+    \end{align*}
+    Nun verwenden wir den Grenzwertsatz, wonach der Grenzwert einer Summe die Summe der Grenzwerte der einzelnen Summanden ist (sofern letztere existieren, was hier der Fall ist, weil die beiden Funktionen differenzierbar sind):
+    \begin{align*}
+        \frac{d}{dx} s(x) & =\lim_{h\rightarrow0}\left(\frac{f(x+h)-f(x)}{h} +\frac{g(x+h)-g(x)}{h}\right)                                    \\
+                          & = \lim_{h\rightarrow0}\left(\frac{f(x+h)-f(x)}{h}\right) + \lim_{h\rightarrow0}\left(\frac{g(x+h)-g(x)}{h}\right) \\
+                          & = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)
+    \end{align*}
+\end{proof}
+\emph{Behauptung 3:} Sei $f$ eine differenzierbare Funktion und $c\in \R$ eine Konstante. Dann gilt
+$$\frac{d}{dx}\left(c\cdot f(x)\right) = c\cdot \frac{d}{dx} f(x)$$
+\begin{proof}
+    Sei $v(x) = c\cdot f(x)$. Dann gilt für die Ableitung von $v$:
+    \begin{align*}
+        \frac{d}{dx} v(x) & =\lim_{h\rightarrow0} \frac{v(x+h)-v(x)}{h}                       \\
+                          & = \lim_{h\rightarrow0} \frac{c\cdot f(x+h)-c\cdot f(x)}{h}        \\
+                          & =\lim_{h\rightarrow0} \left( c\cdot \frac{f(x+h)-f(x)}{h} \right) \\
+                          & = c\cdot \left(\lim_{h\rightarrow0} \frac{f(x+h)-f(x)}{h}\right)  \\
+                          & = c\cdot \frac{d}{dx}f(x)
+    \end{align*}
+\end{proof}
