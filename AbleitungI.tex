@@ -961,44 +961,230 @@ Ist man an der \emph{momentanen} Geschwindigkeit, Beschleunigung oder Änderungs
 %     \item Zeichnen Sie im folgenden Graphen die Sekante durch die Punkte $P(1, f(1))$ und $Q(2, f(2))$ ein. Berechnen Sie die Steigung der Sekante.
 %     \item Berechnen Sie den Differenzenquotienten der Funktion im Intervall $[1,2]$. Was stellen Sie fest? Können Sie die Beobachtung begründen?
 % \end{enumerate}
-Der Differenzialquotient hat neben der durchschnittlichen Änderungsrate auch eine geometrische Bedeutung: Er entspricht der Steigung der Sekante durch die Punkte $(a, f(a))$ und $(b, f(b))$ auf dem Graphen der Funktion $f$.
+Der Differenzenquotient hat neben der durchschnittlichen Änderungsrate auch eine geometrische Bedeutung.
+
+\begin{minipage}{0.6\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.4, >=latex]
+
+            % Achsen
+            \draw[->] (-0.5,0) -- (5.5,0) node[right] {$x$};
+            \draw[->] (0,-0.5) -- (0,5.5) node[above] {$y$};
+
+            % Funktionskurve f (kubisch-ähnlich, mit lokalem Minimum)
+            \draw[thick, domain=-0.2:4.6, samples=100]
+            plot (\x, {0.09*(\x-1)^3 + 0.3*(\x-1) + 1.2})
+            node[left=2pt] {};
+
+            % Funktionsname links
+            \node at (0.55, 1.5) {$f$};
+
+            % Punkte P und Q
+            % P bei x0 = 2.5
+            \pgfmathsetmacro{\xP}{2.5}
+            \pgfmathsetmacro{\yP}{0.09*(\xP-1)^3 + 0.3*(\xP-1) + 1.2}
+
+            % Q bei x0 + Delta_x = 4.2
+            \pgfmathsetmacro{\xQ}{4.2}
+            \pgfmathsetmacro{\yQ}{0.09*(\xQ-1)^3 + 0.3*(\xQ-1) + 1.2}
+
+            % Sekante (gestrichelt), verlängert auf beiden Seiten
+            \draw[dashed, thin]
+            ({\xP - 1.5}, {\yP - 1.5*(\yQ-\yP)/(\xQ-\xP)})
+            -- ({\xQ + 0.5}, {\yQ + 0.5*(\yQ-\yP)/(\xQ-\xP)});
+
+            % Hilfslinie: horizontal von P bis unter Q
+            \draw[thin] (\xP, \yP) -- (\xQ, \yP);
+
+            % Hilfslinie: vertikal von Q runter auf Höhe von P
+            \draw[thin] (\xQ, \yP) -- (\xQ, \yQ);
+
+            % Delta x Beschriftung
+            \node[below] at ({(\xP+\xQ)/2}, \yP) {$\Delta x$};
+
+            % Delta y Beschriftung
+            \node[right] at (\xQ, {(\yP+\yQ)/2}) {$\Delta y$};
+
+            % Punkte P und Q einzeichnen
+            \filldraw (\xP, \yP) circle (1.8pt) node[above left] {$P$};
+            \filldraw (\xQ, \yQ) circle (1.8pt) node[above right] {$Q$};
+
+            % x0 auf x-Achse
+            \draw[thin] (\xP, \yP) -- (\xP, 0);
+            \node[below] at (\xP, 0) {$x_0$};
+
+            % x0 + Delta_x auf x-Achse
+            \draw[thin] (\xQ, \yP) -- (\xQ, 0);
+            \node[below] at (\xQ, 0) {$x_0 + \Delta x$};
+
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+    Steigung der Gerade durch die Punkte $P$ und $Q$ (Sekante):
+    \kariert{7}
+    Differenzenquotient der Funktion $f$ im Intervall $[x_0, x_0 + \Delta x]$:
+    \kariert{7}
+\end{minipage}
+\smallskip
+
+Ebenso hat der Differenzialquotient eine geometrische Bedeutung:
+
+\begin{minipage}{0.6\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.4, >=latex]
+
+            % Achsen
+            \draw[->] (-0.5,0) -- (5.5,0) node[right] {$x$};
+            \draw[->] (0,-0.5) -- (0,5.5) node[above] {$y$};
+
+            % Funktionskurve f (kubisch-ähnlich, mit lokalem Minimum)
+            \draw[thick, domain=-0.2:4.6, samples=100]
+            plot (\x, {0.09*(\x-1)^3 + 0.3*(\x-1) + 1.2})
+            node[left=2pt] {};
+
+            % Funktionsname links
+            \node at (0.55, 1.5) {$f$};
+
+            % Hilfsmakro: f(x)
+            % f(x) = 0.09*(x-1)^3 + 0.3*(x-1) + 1.2
+            % f'(x) = 0.27*(x-1)^2 + 0.3
+
+            % Punkt P bei x0 = 2.5
+            \pgfmathsetmacro{\xP}{2.5}
+            \pgfmathsetmacro{\yP}{0.09*(\xP-1)^3 + 0.3*(\xP-1) + 1.2}
+
+            % Ableitung f'(xP) = Steigung der Tangente
+            \pgfmathsetmacro{\sT}{0.27*(\xP-1)^2 + 0.3}
+
+            % Tangente (rot), von links nach rechts
+            \draw[red, thick]
+            ({-0.5}, {\yP + \sT*(-0.5 - \xP)})
+            -- ({5.3}, {\yP + \sT*(5.3 - \xP)});
+
+            % Mehrere Q-Punkte und ihre Sekanten (gestrichelt)
+            % xQ nimmt Werte 4.2, 3.6, 3.1 an (Q nähert sich P)
+            \foreach \xQ in {4.2, 3.6, 3.1} {
+                    \pgfmathsetmacro{\yQ}{0.09*(\xQ-1)^3 + 0.3*(\xQ-1) + 1.2}
+                    \pgfmathsetmacro{\slope}{(\yQ-\yP)/(\xQ-\xP)}
+                    % Sekante gestrichelt, über beide Seiten verlängert
+                    \draw[dashed, thin]
+                    ({\xP - 1.2}, {\yP - 1.2*\slope})
+                    -- ({\xQ + 0.5}, {\yQ + 0.5*\slope});
+                    % Senkrechter Strich vom Punkt auf der Kurve zur horizontalen Delta-x-Linie
+                    \draw[thin] (\xQ, \yQ) -- (\xQ, \yP);
+                    % Punkt Q_i auf der Kurve
+                    \filldraw (\xQ, \yQ) circle (1.5pt);
+                }
+
+            % Outermost Q (= Q in der Vorlage) mit Label
+            \pgfmathsetmacro{\xQ}{4.2}
+            \pgfmathsetmacro{\yQ}{0.09*(\xQ-1)^3 + 0.3*(\xQ-1) + 1.2}
+
+            % Hilfslinie: horizontal von P bis unter Q (nur für äusserstes Q)
+            \draw[thin] (\xP, \yP) -- (\xQ, \yP);
+            % Hilfslinie: vertikal von Q runter auf Höhe von P
+            \draw[thin] (\xQ, \yP) -- (\xQ, \yQ);
+
+            % Delta x / Delta y Beschriftung (nur für äusserstes Q)
+            \node[below] at ({(\xP+\xQ)/2}, \yP) {$\Delta x$};
+            \node[right]  at (\xQ, {(\yP+\yQ)/2}) {$\Delta y$};
+
+            % x0 und x0+Delta_x auf x-Achse
+            \draw[thin] (\xP, \yP) -- (\xP, 0);
+            \node[below] at (\xP, 0) {$x_0$};
+            \draw[thin] (\xQ, \yP) -- (\xQ, 0);
+            \node[below] at (\xQ, 0) {$x_0 + \Delta x$};
+
+            % Label Q für äusserstes Q
+            \filldraw (\xQ, \yQ) circle (1.8pt) node[above right] {$Q$};
+
+            % Punkt P
+            \filldraw (\xP, \yP) circle (1.8pt) node[above left] {$P$};
+
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+    Steigung der Gerade, wenn $Q$ unendlich nahe zu $P$ kommt:
+    \kariert{14}
+\end{minipage}
+\newpage
+
+\begin{theo}[Geometrische Bedeutung des Differenzenquotienten]{}
+    Der Differenzenquotient der Funktion $f$ im Intervall $[x_0, x_0 + \Delta x]$ entspricht der Steigung der Sekante durch die Punkte $P(x_0, f(x_0))$ und $Q(x_0 + \Delta x, f(x_0 + \Delta x))$.
+\end{theo}
+
+\begin{theo}[Geometrische Bedeutung der Ableitung an einer Stelle]{}
+    Die Ableitung einer Funktion $f$ an der Stelle $x_0$ entspricht der Steigung der Tangente an den Graphen von $f$ an der Stelle $x_0$.
+\end{theo}
 \subsection{Übungen}
 \begin{enumerate}
-    \item Skizzieren Sie den Graphen der Funktion \( f(x) = 2x^2 \). Beantworten Sie dann die folgenden Fragen mit einer Rechnung:
+    \item \( f(x) = 2x^2 \)
           \begin{enumerate}
               \item  Welche Steigung hat die Sekante, welche den Graphen an den Stellen \( x = 1 \) und \( x = 2 \) schneidet?
-              \item Welche Steigung hat die Sekante, welche den Graphen an den Stellen \( x = 1 \) und \( x = 1 + h \) schneidet?
+                    %   \item Welche Steigung hat die Sekante, welche den Graphen an den Stellen \( x = 1 \) und \( x = 1 + h \) schneidet?
               \item Welche Steigung hat die Tangente, die den Graphen an der Stelle \( x = 1 \) berührt?
               \item Welche Steigung hat jene Tangente, die den Graphen an der Stelle \( x = 2 \) berührt?
           \end{enumerate}
 
     \item Sei \( f(x) = x^3 \).
-          Berechne \( f'(2) \).
+          Berechnen Sie \( f'(2) \).
 
-    \item Skizzieren Sie den Graphen der Funktion \( f(x) = x^2 - 5 \).
+    \item Sei \( f(x) = x^2 - 5 \). Der Graph von $f$ sieht wie folgt aus:
+
+          \begin{tikzpicture}[scale=0.4, >=latex,font=\scriptsize]
+
+              % Raster (optional, kann entfernt werden)
+              \draw[gray!30, very thin, step=1] (-3.5,-5.5) grid (3.5,2.6);
+
+              % Achsen
+              \draw[->] (-3.8,0) -- (3.8,0) node[right] {$x$};
+              \draw[->] (0,-5.8) -- (0,2.6) node[above] {$y$};
+
+              % Achsenbeschriftung x
+              \foreach \x in {-3,-2,-1,1,2,3} {
+                      \draw[thin] (\x,0.05) -- (\x,-0.05);
+                      \node[below] at (\x,0) {$\x$};
+                  }
+
+              % Achsenbeschriftung y
+              \foreach \y in {-5,-4,-3,-2,-1,1,2} {
+                      \draw[thin] (0.05,\y) -- (-0.05,\y);
+                      \node[left] at (0,\y) {$\y$};
+                  }
+
+              % Graph von f(x) = x^2 - 5
+              \draw[thick, blue, domain=-2.6:2.6, samples=100]
+              plot (\x, {\x*\x - 5});
+
+              % Funktionslabel
+              \node[blue, right] at (2.5, 1.25) {$f$};
+
+          \end{tikzpicture}
           \begin{enumerate}
               \item Berechnen Sie \( f'(0) \). Welche Eigenschaft des Graphen wird durch das Resultat verdeutlicht?
               \item Berechnen Sie \( f'(2) \).
-              \item Bestimmen Sie \( f'(-2) \). Entweder mit dem Differenzialquotient oder indem Sie eine Eigenschaft der Parabel verwenden\dots
+              \item Bestimmen Sie \( f'(-2) \) ohne zu rechnen, indem Sie die Symmetrie der Parabel verwenden.
           \end{enumerate}
 
-    \item Zeichnem Sie den Graphen der Funktion \( f(x) = \frac{1}{3}x - 1 \).\\
+    \item Zeichnen Sie den Graphen der Funktion \( f(x) = \frac{1}{3}x - 1 \).\\
           Entscheiden Sie ohne zu rechnen: Wie gross sind \( \frac{d}{dx} f(1) \), \( \frac{d}{dx} f(2) \) und \( \frac{d}{dx} f(-42) \)?
 
-    \item Die Funktion $N(t)$ beschreibt die Anzahl Bakterien einer Bakterienkultur $t$ Tage nach Beginn des Experiments. Beschreiben Sie die Bedeutung der folgenden Grössen und geben deren Einheit an.
-          \begin{enumerate}
-              \item $N(10)-N(5)$
-              \item $\frac{N(10)-N(5)}{5}$
-              \item $\lim\limits_{h\to0}\frac{N(5+h)-N(5)}{h}$
-          \end{enumerate}
+          % \item Die Funktion $N(t)$ beschreibt die Anzahl Bakterien einer Bakterienkultur $t$ Tage nach Beginn des Experiments. Beschreiben Sie die Bedeutung der folgenden Grössen und geben deren Einheit an.
+          %       \begin{enumerate}
+          %           \item $N(10)-N(5)$
+          %           \item $\frac{N(10)-N(5)}{5}$
+          %           \item $\lim\limits_{h\to0}\frac{N(5+h)-N(5)}{h}$
+          %       \end{enumerate}
 
-    \item Ein Teilchen bewegt sich mit der Geschwindigkeit $v(t) = 2t^2 - 5t + 1$ [m/s] in Abhängigkeit von der Zeit $t$ [s]. Berechnen Sie die momentane Beschleunigung des Teilchens zum Zeitpunkt $t=1$.
+          % \item Ein Teilchen bewegt sich mit der Geschwindigkeit $v(t) = 2t^2 - 5t + 1$ [m/s] in Abhängigkeit von der Zeit $t$ [s]. Berechnen Sie die momentane Beschleunigung des Teilchens zum Zeitpunkt $t=1$.
 
-          Bestimmen Sie auch die momentane Geschwindigkeit zur Zeit $t=1$ und beschreiben Sie die Bewegung des Teilchens zu diesem Zeitpunkt.
+          %       Bestimmen Sie auch die momentane Geschwindigkeit zur Zeit $t=1$ und beschreiben Sie die Bewegung des Teilchens zu diesem Zeitpunkt.
 
-    \item \textbf{Achtung Doppelbrüche!}\\
-          Sei \( f(x) = \frac{1}{x + 1} \). Berechne \( f'(1) \).
-          x
+          %       % \item \textbf{Achtung Doppelbrüche!}\\
+          %       %       Sei \( f(x) = \frac{1}{x + 1} \). Berechne \( f'(1) \).
+          %       %       x
 \end{enumerate}
 
 \clearpage
@@ -1009,7 +1195,7 @@ Der Differenzialquotient hat neben der durchschnittlichen Änderungsrate auch ei
     \item
           \begin{enumerate}
               \item \( 6 \)
-              \item \( 4 + 2h \)
+                    %   \item \( 4 + 2h \)
               \item \( 4 \)
               \item \( 8 \)
           \end{enumerate}
@@ -1021,8 +1207,12 @@ Der Differenzialquotient hat neben der durchschnittlichen Änderungsrate auch ei
     \item
           \begin{enumerate}
               \item \( f'(0) = 0 \)
+
+                    Der Graph hat an der Stelle \( x=0 \) eine horizontale Tangente (sprich die Tangente hat Steigung $0$). Dies ist auch anhand des Graphen ersichtlich.
               \item \( f'(2) = 4 \)
               \item  \( f'(-2) = -4 \)
+
+                    Die Tangente an der Stelle \( x=-2 \) hat die gleiche Steigung wie die Tangente an der Stelle \( x=2 \), aber mit negativem Vorzeichen. Dies liegt daran, dass die Parabel symmetrisch zur y-Achse ist.
           \end{enumerate}
 
     \item
@@ -1031,18 +1221,19 @@ Der Differenzialquotient hat neben der durchschnittlichen Änderungsrate auch ei
               \frac{d}{dx}f(2) = \frac{1}{3}, \quad
               \frac{d}{dx}f(-42) = \frac{1}{3}
           \]
-    \item
-          \begin{enumerate}
-              \item Bevölkerungszuwachs in Anzahl Bakterien.
-              \item \emph{Durchschnittliche} Wachstumsrate der Population zwischen dem 5 und 10 Tag in Bakterien/Tag.
-              \item  \emph{Momentane} Wachstumsrate der Population am fünften Tag in Bakterien/Tag.
-          \end{enumerate}
-    \item Beschleunigung des Teilchens am Zeitpunkt \( t=1 \):
-          \[
-              a(1) = v'(1) = -1
-          \]
-          Ausserdem gilt $v(1)=-2$. Bezüglich der ausgelegten Skala, welche die Position des Teilchens beschreibt, bewegt sich das Teilchen so, dass die Werte abnehmen. Wegen der negativen Beschleunigung, bewegt sich das Teilchen immer schneller in negativer Richtung.
-    \item
-          \( f'(1) = -\frac{1}{4} \)
+          Der Graph von \( f \) ist eine Gerade mit konstanter Steigung. Daher ist die Ableitung von \( f \) an jeder Stelle gleich der Steigung der Geraden selbst, also \( \frac{1}{3} \).
+          % \item
+          %       \begin{enumerate}
+          %           \item Bevölkerungszuwachs in Anzahl Bakterien.
+          %           \item \emph{Durchschnittliche} Wachstumsrate der Population zwischen dem 5 und 10 Tag in Bakterien/Tag.
+          %           \item  \emph{Momentane} Wachstumsrate der Population am fünften Tag in Bakterien/Tag.
+          %       \end{enumerate}
+          % \item Beschleunigung des Teilchens am Zeitpunkt \( t=1 \):
+          %       \[
+          %           a(1) = v'(1) = -1
+          %       \]
+          %       Ausserdem gilt $v(1)=-2$. Bezüglich der ausgelegten Skala, welche die Position des Teilchens beschreibt, bewegt sich das Teilchen so, dass die Werte abnehmen. Wegen der negativen Beschleunigung, bewegt sich das Teilchen immer schneller in negativer Richtung.
+          %       % \item
+          %       %       \( f'(1) = -\frac{1}{4} \)
 
 \end{enumerate}
