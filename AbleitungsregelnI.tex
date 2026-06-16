@@ -555,3 +555,104 @@ Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotiente
           \]
 \end{enumerate}
 \clearpage
+\subsection{Vermischte Aufgaben}
+\begin{enumerate}
+    \item Berechnen Sie folgende Grenzwerte.
+          \begin{enumerate}
+              \item $\displaystyle\lim_{x\to \infty}\dfrac{2x^2-18}{-42 x - 8 x^2 + 2 x^3}$
+              \item $\displaystyle\lim_{x\to -\infty}\dfrac{2x^2-18}{-42 x - 8 x^2 + 2 x^3}$
+              \item $\displaystyle\lim_{x\to 5}\left(2x^2-3x+4\right)$
+              \item $\displaystyle\lim_{x\to -3}\dfrac{2x^2-18}{-42 x - 8 x^2 + 2 x^3}$
+          \end{enumerate}
+    \item Was muss alles zutreffen, damit wir sagen, der Grenzwert einer Funktion $f$ an einer Stelle $x_0$ existiert? Insbesondere: muss $f$ an dieser Stelle definiert sein?
+    \item N. ist verwirrt: Er fragt: \glqq Warum genau hat die Funktion sgn$(x)$ an der Stelle $x_0=0$ keinen Grenzwert? Die Funktion ist an der Stelle $0$ doch definiert?\grqq{} Helfen Sie N.
+    \item Bestimmen Sie jeweils den rechten und linken Grenzwert an der gegebenen Stelle $a$.
+          \begin{enumerate}
+              \item $f(x)=\dfrac{3}{x}$, $a=0$
+              \item $f(x)=\dfrac{|1+x|-1}{x}$, $a=0$
+              \item $f(x)=\dfrac{x^2+2x+1}{x+1}$, $a=-1$
+              \item $f(x) = \lceil x+3\rceil$, $a=-3$
+          \end{enumerate}
+    \item A. behauptet, dass $f(x)=\dfrac{x^2-4}{x-2}$ als Graph eine Gerade besitzt. Sie argumentiert mithilfe der folgenden Rechnung:
+          \[f(x)=\frac{x^2-4}{x-2}=\frac{(x+2)\cancel{(x-2)}}{\cancel{x-2}}=x+2\]
+          Hat A. recht?
+          %\item (Aufgabe 1 S. 76 Barth 3)
+    \item $f(x)=\dfrac{x^2-16}{x-4}$
+          \begin{enumerate}
+              \item Existiert $\displaystyle \lim_{x\to 4}f(x)$?
+              \item Ist die Funktion stetig?
+          \end{enumerate}
+    \item \[f(x)=\begin{cases}
+                  3-x,\ x<2 \\\dfrac{x}{2},\ x\geq 2
+              \end{cases}\]
+          \begin{enumerate}
+              \item Existiert $\displaystyle \lim_{x\to 2}f(x)$?
+              \item Ist die Funktion stetig in $x=2$?
+          \end{enumerate}
+
+    \item Geben Sie für die Funktion $f(x)=2\sqrt{x+2}$ die mittlere Änderungsrate im Intervall $[-2,0]$ an.
+    \item Berechnen Sie die momentane Änderungsrate der Funktion $f(x)=\dfrac{1}{x}$ an der Stelle $2$.
+    \item In sauberen Meerwasser verliert das Licht pro Meter Tiefe erfahrungsgemäss $75\%$ seiner Leuchtkraft $L$. Mit $L(x)$ werde die Leuchtkraft in $x$ Metern unter der Meeresoberfläche bezeichnet, wobei $L(0)=1=100\%$ für die volle Leuchtkraft steht.
+          \begin{enumerate}
+              \item Bestimmen Sie die Funktionsgleichung für die Leuchtkraft $L(x)$.
+              \item Welche Bedeutung hat der Ausdruck $L(x_2)-L(x_1)$? Berechnen Sie $L(5)-L(2)$.
+              \item Berechnen Sie die mittlere Änderungsrate der Leuchtkraft pro Meter zwischen den Tiefen $2$ m und $5$ m.
+              \item Welche Bedeutung hat der Term $\displaystyle \lim_{\Delta x \to 0}\dfrac{L(5+\Delta x)-L(5)}{\Delta x}$?
+          \end{enumerate}
+    \item Berechnen Sie mitilfe des Differenzialquotienten den Wert von $f'(2)$, wobei $f(x)=x^3$.
+    \item Ordnen Sie die Graphen I) - IV) ihren Ableitungsfunktionen a) - d) zu.
+              {% lokale Gruppe - Makro und Stil wirken nur hier
+                  \newcommand{\funcplot}[3]{%
+                      \begin{tikzpicture}[scale=0.7]
+                          \draw[->] (-2.6,0) -- (2.6,0) node[right] {$x$};
+                          \draw[->] (0,-1.8) -- (0,2.6) node[above] {$y$};
+                          \begin{scope}
+                              \clip (-2.5,-1.7) rectangle (2.5,2.5);
+                              \draw[green!50!black, thick, domain=#2:#3, samples=100, smooth]
+                              plot (\x,{#1});
+                          \end{scope}
+                      \end{tikzpicture}%
+                  }
+
+                  \begin{center}
+                      \renewcommand{\arraystretch}{1.3}
+                      \begin{tabular}{c@{\hspace{1.5cm}}c}
+                          \textbf{I}                         & \textbf{II}                     \\
+                          \funcplot{-1*(\x)^3+8/3*\x}{-2}{2} & \funcplot{-(\x)^2+2}{-2.1}{2.1} \\[1em]
+                          \textbf{III}                       & \textbf{IV}                     \\
+                          \funcplot{sqrt(\x+2.5)}{-2.4}{2.5} & \funcplot{-2*\x}{-2.5}{0.95}
+                      \end{tabular}
+                  \end{center}
+                  \begin{center}
+                      \renewcommand{\arraystretch}{1.3}
+                      \begin{tabular}{c@{\hspace{1.5cm}}c}
+                          \textbf{a)}                         & \textbf{b)}                              \\
+                          \funcplot{-3*(\x)^2+5/3}{-1.1}{1.1} & \funcplot{1/(2*sqrt(\x+2.5))}{-2.4}{2.5} \\[1em]
+                          \textbf{c)}                         & \textbf{d)}                              \\
+                          \funcplot{-2*\x}{-1.4}{1.4}         & \funcplot{-1}{-2.5}{1.4}
+                      \end{tabular}
+                  \end{center}
+              }% Ende der lokalen Gruppe
+    \item Geben Sie jeweils die Ableitungsfunktion von $f$ an mithilfe des Differenzialquotienten.
+          \begin{enumerate}
+              \item $f(x)=3x^2+4$
+              \item $f(x)=7x$
+              \item $f(x)=8$
+              \item $f(x)=2x^2$
+          \end{enumerate}
+    \item Bestimmen Sie die Gleichung der Tangente an den Graphen der Funktion $f(x)=2x^3-7x^2+3$ im Punkt $P=(3,-6)$.
+    \item Gegeben ist die Funktion $f$ mit $f(x)=2x^3-14x+9$. In welchen Punkten des Graphen ist die Tangente parallel zur Geraden $g:y=10x-8$?
+    \item Leiten Sie folgende Funktionen mithilfe der Ableitungsregeln ab.
+          \begin{enumerate}
+              \item $f(x)=(x^2-x+1)(1-x)$
+              \item $g(x)=(x^3-2)(4x+\sqrt{x})$
+              \item $h(x)=(2x+1)\sqrt[5]{x^2}$
+              \item $i(x)=\dfrac{1+4x^3}{2-4x^3}$
+              \item $k(x)=\dfrac{x+2}{\sqrt{x}-x}$
+          \end{enumerate}
+    \item Gegeben ist $f'$. Finden Sie jeweils einen möglichen Term für die Funktion $f$.
+          \begin{enumerate}
+              \item $f'(x)=2x$
+              \item $f'(x)=8x^3+3$
+          \end{enumerate}
+\end{enumerate}
