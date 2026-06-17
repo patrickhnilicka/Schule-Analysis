@@ -560,7 +560,7 @@ Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotiente
     \item Berechnen Sie folgende Grenzwerte.
           \begin{enumerate}
               \item $\displaystyle\lim_{x\to \infty}\dfrac{2x^2-18}{-42 x - 8 x^2 + 2 x^3}$
-              \item $\displaystyle\lim_{x\to -\infty}\dfrac{2x^2-18}{-42 x - 8 x^2 + 2 x^3}$
+              \item $\displaystyle\lim_{x\to -\infty}\dfrac{2x^2-18}{-42 x - 8 x^2}$
               \item $\displaystyle\lim_{x\to 5}\left(2x^2-3x+4\right)$
               \item $\displaystyle\lim_{x\to -3}\dfrac{2x^2-18}{-42 x - 8 x^2 + 2 x^3}$
           \end{enumerate}
@@ -583,7 +583,14 @@ Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotiente
               \item Ist die Funktion stetig?
           \end{enumerate}
     \item \[f(x)=\begin{cases}
-                  3-x,\ x<2 \\\dfrac{x}{2},\ x\geq 2
+                  3-x,\ x<2 \\\dfrac{x}{2}+1,\ x\geq 2
+              \end{cases}\]
+          \begin{enumerate}
+              \item Existiert $\displaystyle \lim_{x\to 2}f(x)$?
+              \item Ist die Funktion stetig in $x=2$?
+          \end{enumerate}
+    \item \[f(x)=\begin{cases}
+                  3-x,\ x<2 \\5,\ x=2\\\dfrac{x}{2},\ x> 2
               \end{cases}\]
           \begin{enumerate}
               \item Existiert $\displaystyle \lim_{x\to 2}f(x)$?
@@ -654,5 +661,103 @@ Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotiente
           \begin{enumerate}
               \item $f'(x)=2x$
               \item $f'(x)=8x^3+3$
+          \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection*{Lösungen}
+\begin{enumerate}
+    \item \begin{enumerate}
+              \item $0$
+              \item $-\dfrac{1}{4}$
+              \item $39$
+              \item $-\dfrac{1}{5}$
+          \end{enumerate}
+    \item Der links- und rechtsseitige Grenzwert müssen an dieser Stelle übereinstimmen. $f$ muss an dieser Stelle nicht definiert sein.
+    \item Der linksseitige Grenzwert ist $-1$, wohingegen der rechtsseitige Grenzwert $1$ ist. Das heisst, der Grenzwert existiert an dieser Stelle nicht.
+    \item \begin{enumerate}
+              \item $\lim_{x\to 0^-}f(x) = -\infty,\ \lim_{x\to 0^+}f(x) = +\infty$
+              \item $\lim_{x\to 0^-}f(x) = 1,\ \lim_{x\to 0^+}f(x) = 1$
+              \item $\lim_{x\to 0^-}f(x) = 0,\ \lim_{x\to 0^+}f(x) = 0$
+              \item $\lim_{x\to 0^-}f(x) = 0,\ \lim_{x\to 0^+}f(x) = 1$
+          \end{enumerate}
+    \item Das stimmt nicht, der Graph von $f$ ist fast eine Gerade, hat aber an der Stelle $x=2$ eine Definitionslücke, sprich ein \glqq Loch\grqq{}.
+    \item \begin{enumerate}
+              \item Ja, der Grenzwert ist $8$.
+              \item Ja, da die Funktion keine Sprünge aufweist.
+          \end{enumerate}
+    \item \begin{enumerate}
+              \item $\displaystyle \lim_{x \to 2^-}=1,\ \lim_{x \to 2^+}=2$, der Grenzwert $\lim_{x\to 2}f(x)$ existiert also nicht.
+              \item Nein, da der linke und rechte Grenzwert nicht übereinstimmen. Damit die Funktion stetig ist, müssten die beiden Grenzwerte übereinstimmen \textbf{und} gleich dem Funktionswert an dieser Stelle sein.
+          \end{enumerate}
+    \item \begin{enumerate}
+              \item $\displaystyle \lim_{x \to 2^-}=1,\ \lim_{x \to 2^+}=1$, der Grenzwert $\lim_{x\to 2}f(x)$ existiert also und ist gleich $1$.
+              \item Nein, der linke und rechte Grenzwert stimmen zwar überein, aber ist nicht gleich dem Funktionswert $5$ an dieser Stelle.
+          \end{enumerate}
+    \item Die mittlere Änderungsrate berechnet man mit dem Differenzenquotienten:
+          \begin{align*}
+              \frac{2\sqrt{0+2}-2\sqrt{-2+2}}{2} = \sqrt{2}
+          \end{align*}
+    \item Die momentane Änderungsrate berechnet man mit dem Differenzialquotienten:
+          \begin{align*}
+              \lim_{h\to 0}\frac{\frac{1}{2+h}-\frac{1}{2}}{h} & =\lim_{h\to 0}\frac{\frac{2}{2(2+h)}-\frac{2+h}{2(2+h)}}{h} \\
+                                                               & =\lim_{h\to 0}\frac{2-(2+h)}{h\cdot 2(2+h)}                 \\
+                                                               & =\lim_{h\to 0}\frac{-h}{h\cdot 2(2+h)}                      \\
+                                                               & =\lim_{h\to 0}\frac{-1}{2(2+h)}=   -\frac{1}{4}             \\
+          \end{align*}
+    \item \begin{enumerate}
+              \item $L(x)=0.75^x$
+              \item Änderung der Leuchtkraft von der Tiefe $x_1$ zur Tiefe $x_2$.\\
+                    $L(5)-L(2)\approx -0.325$
+              \item $\dfrac{L(5)-L(2)}{5-2}\approx -0.108$
+              \item Momentane Änderungsrate der Leuchtkraft in $5$ Metern Tiefe.
+          \end{enumerate}
+    \item \begin{align*}
+              \lim_{h\to 0}\frac{(2+h)^3-2^3}{h} & = \lim_{h\to 0}\frac{8+12h+6h^2+h^3-8}{h} \\
+                                                 & =\lim_{x\to h}\frac{12h+6h^2+h^3}{h}      \\
+                                                 & =12
+          \end{align*}
+    \item I a),\ II c),\ III b),\ IV d)
+    \item \begin{enumerate}
+              \item \begin{align*}
+                        \lim_{h \to 0}\frac{3(x+h)^2+4-(3x^2+4)}{h} & =\lim_{h \to 0}\frac{3(x^2+2xh+h^2)+4-(3x^2+4)}{h} \\
+                                                                    & =\lim_{h \to 0}\frac{6xh+3h^2}{h}                  \\
+                                                                    & =6x
+                    \end{align*}
+              \item \begin{align*}
+                        \lim_{h \to 0}\frac{7(x+h)-7x}{h} & =\lim_{h \to 0}\frac{7h}{h} \\
+                                                          & =7
+                    \end{align*}
+              \item \begin{align*}
+                        \lim_{h \to 0}\frac{8-8}{h}=0
+                    \end{align*}
+              \item \begin{align*}
+                        \lim_{h \to 0}\frac{2(x+h)^2-2x^2}{h} & =\dots \\
+                                                              & =4x
+                    \end{align*}
+          \end{enumerate}
+    \item $t: y=ax + b$\\
+          $f'(x)=6x^2-14x$\\
+          $a=f'(3)=12,\ t:y=12x+b$\\
+          $t(3)=-6,\ 12\cdot 3 + b= -6$\\
+          $b=-42$\\
+          $t:y = 12x-42$
+    \item \begin{align*}
+              f'(x) = 10         \\
+              6x^2-14 = 10       \\
+              x^2 = 4            \\
+              x_1 = 2,\ x_2 = -2 \\
+              P_1=(2, -3),\ P_2=(2,21)
+          \end{align*}
+          \item\begin{enumerate}
+              \item $f'(x)=(2x-1)(1-x)+ (x^2-x+1)(-1) (= -3x^2+4x-2) $
+              \item $g'(x)=(3x^2)(4x+\sqrt{x}) + (x^3-2)(4+\frac{1}{2\sqrt{x}})(=16x^3+\frac{7}{2}x^{\frac{5}{2}}-x^{-\frac{1}{2}}-8)$
+              \item $h(x)=(2x+1)x^{\frac{2}{5}}$\\
+                    $h'(x)=2\cdot x^{\frac{2}{5}}+(2x+1)\cdot \frac{2}{5}x^{-\frac{3}{5}}=(\frac{14}{5}x^{\frac{2}{5}}+\frac{2}{5}x^{-\frac{3}{5}})$
+              \item $i'(x)=\dfrac{12x^2(2-4x^3)-(1+4x^3)(-12x^2)}{(2-4x^3)^2}$
+              \item $k'(x)=\dfrac{1\cdot (\sqrt{x}-x)-(x+2)(\frac{1}{2\sqrt{x}}-1)}{(\sqrt{x}-x)^2}$
+          \end{enumerate}
+    \item \begin{enumerate}
+              \item $f(x)=x^2$ oder $f(x)=x^2+1$
+              \item $f(x)=2x^4+3x$ oder $f(x)=2x^4+3x -2$
           \end{enumerate}
 \end{enumerate}
