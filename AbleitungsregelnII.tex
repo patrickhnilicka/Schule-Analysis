@@ -1,181 +1,3 @@
-
-
-
-
-\clearpage
-\subsection{Weitere Ableitungsregeln}
-Mit den Regeln aus dem vorherigen Abschnitt können wir bereits eine grosse Klasse von Funktionen ableiten. Es gibt jedoch noch viele Funktionen, die nicht in diese Klasse fallen. Ziel ist am Ende, dass wir alle Funktionen ableiten können, die wir in der Schule kennenlernen. Dazu benötigen wir noch einige weitere Ableitungsregeln.
-\subsubsection{Produkt- und Quotientenregel}
-Gegeben sind die beiden Funktionen $g(x)=x^2$ und $h(x)=x+1$.
-\begin{enumerate}
-    \item Bestimmen Sie die Ableitung der folgenden Funktionen.
-          \begin{enumerate}
-              \item $y=g(x)$
-              \item $y=h(x)$
-              \item $y=2\cdot g(x)$
-              \item $y=g(x)+h(x)$
-              \item $y=g(x)\cdot h(x)$
-              \item $y=\frac{g(x)}{h(x)}$
-              \item $y=\frac{h(x)}{g(x)}$
-          \end{enumerate}
-    \item Zwei Funktionen lassen sich nicht ohne weiteres Ableiten. Welche?
-
-    \item Gilt für das Produkt zweier Funktionen die Regel $[g\cdot h]'=g'\cdot h'$? Überprüfen Sie diese Vermutung anhand von Aufgabe 5.
-\end{enumerate}
-\clearpage
-Wir können nun bereits Summen und Vielfache von Potenzfunktion mit rationalen Exponenten einfach ableiten. Für Produkten und Quotienten solcher Funktionen kennen wir jedoch noch keine einfachen Regeln. Dies wollen wir in diesem Kapitel ändern.
-
-Um solche Verknüpfungen von Funktionen ableiten zu können, betrachten wir den Differenzialquotienten eines Produktes von zwei Funktionen: Sei also $p(x)=f(x)\cdot g(x)$. Dann lautet der Differenzialquotienten von $p$:
-$$\frac{dp}{dx}=\lim_{h\rightarrow 0} \frac{p(x+h)-p(x)}{h} = \lim_{h\rightarrow 0}\frac{f(x+h)\cdot g(x+h) - f(x)\cdot g(x)}{h}$$
-
-
-Es fällt auf, dass in dem Term „irgendwie“ die Ableitung von $f$ enthalten ist (wenn die $g$-Ausdrucke nicht stören würden) und dass „irgendwie“ die Ableitung von $g$ auch enthalten ist (wobei diesmal die $f$-Ausdrucke stören). Mit einer geschickten Termumformung kann man die $f$ und $g$-Terme voneinander trennen. Dazu Addieren Null im Zähler dazu.
-
-$$\frac{dp}{dx}=\lim_{h\rightarrow 0}\frac{f(x+h)\cdot g(x+h) + 0 - f(x)\cdot g(x)}{h}$$
-Die Null im Zähler schreiben wir nun so: $0=-f(x)\cdot g(x+h)+f(x)\cdot g(x+h)$ und erhalten:
-\begin{align*}
-    \frac{dp}{dx} & = \lim_{h\rightarrow 0}\frac{f(x+h)\cdot g(x+h) + [-f(x)\cdot g(x+h)+f(x)\cdot g(x+h)] - f(x)\cdot g(x)}{h}                                  \\
-                  & =  \lim_{h\rightarrow 0} \left(\frac{f(x+h)\cdot g(x+h)-f(x)\cdot g(x+h)}{h} + \frac{f(x)\cdot g(x+h)-f(x)\cdot g(x)}{h}\right)              \\
-                  & = \lim_{h\rightarrow 0} \left(\frac{f(x+h)-f(x)}{h}\cdot g(x+h)\right) + \lim_{h\rightarrow 0} \left(f(x) \cdot \frac{g(x+h)-g(x)}{h}\right) \\
-                  & =f'(x)\cdot g(x) + f(x)\cdot g'(x)
-\end{align*}
-\begin{theo}
-    [Die Produktregel]{}
-    Sei $p(x)=f(x)\cdot g(x)$. Sind $f$ und $g$ beide differenzierbar an der Stelle $x$, so ist auch $p$ differenzierbar an der Stelle $x$ und es gilt
-    $$p'(x)=f'(x) \cdot g(x)+f(x)\cdot g' (x)$$
-
-\end{theo}
-
-\begin{example}
-    Die Ableitung von Produkte ist jetzt möglich, ohne vorher auszumultiplizieren. Wir betrachten als Beispiel die Funktion $y=x^2(1-x^3)$ und lesen sie als Produkt von zwei einfachen Funktionen:
-    $$y=\underbrace{x^2}_{f(x)} \cdot \underbrace{(1-x^3)}_{g(x)}$$
-    mit der Produktregel folgt nun
-    % $$y'=\underbrace{2x}_{f'(x)} \cdot \underbrace{(1-x^3)}_{g(x)} + \underbrace{x^2}_{f(x)}\cdot \underbrace{{(-3x^2)}}_{g'(x)} = 2x(1-x^3)-3x^4$$
-    \vspace*{4cm}
-\end{example}
-
-Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotienten herleiten:
-
-\begin{theo}
-    [Die Quotientenregel]{}
-    Sei $q(x)=\frac{f(x)}{g(x)}$. Sind $f$ und $g$ beide an der Stelle $x \in \mathbb{D}_q$ differenzierbar, so ist auch $q$ differenzierbar an der Stelle $x$ und es gilt
-    $$q'(x)=\frac{g(x)f'(x)-f(x)g'(x)}{(g(x))^2}$$
-\end{theo}
-
-\begin{example}
-    Das schwierige Beispiel in der Einführungsaufgabe lässt sich nun leicht ableiten:
-    $$y=\frac{x^2}{x+1} $$ %\Rightarrow y'=\frac{(x+1)\cdot 2x - x^2 \cdot 1}{(x+1)^2} = \frac{x^2+2x}{(x+1)^2}$$
-
-    \vspace*{8cm}
-\end{example}
-
-\subsubsection{Übungen}
-\begin{enumerate}
-    \item Leite die folgenden Funktionen mit der Produktregel ab:
-          \begin{enumerate}
-              \item $y= x^2(1-3x^2)$
-              \item $y= (2x+1)(3x^2-4)$
-              \item $y= (x^2+1) \cdot \sqrt{x}$
-          \end{enumerate}
-
-
-
-    \item Leite die folgenden Funktionen mit der Quotientenregel ab:
-          \begin{enumerate}
-              \item $y= \frac{4x+1}{x}$
-              \item $y= \frac{x}{4x+1}$
-              \item $y= \frac{x^2-x}{x^3+2}$
-          \end{enumerate}
-
-    \item Gegeben ist die Funktion \( f \) mit der Gleichung \( f(x) = (x^2 + 1)(3x - 4) \).
-          \begin{enumerate}
-              \item Bestimme die Ableitung von \( f \) ein erstes Mal wie folgt: Zuerst den Funktionsterm \( f(x) \) ausmultiplizieren und vereinfachen und dann ableiten.
-              \item Bestimme \( f' \) auch noch auf folgende Weise: Zuerst die Produktregel anwenden, dann erst ausmultiplizieren und vereinfachen.
-          \end{enumerate}
-
-    \item Gegeben ist die Funktion \( f \) mit der Gleichung \( f(x) = \frac{2x^3+4x^2+5x+6}{x^2} \).
-          \begin{enumerate}
-              \item Bestimme die Ableitung von \( f \) ein erstes Mal mit der Quotientenregel.
-              \item Bestimme \( f' \) auch noch auf folgende Weise: Zuerst Ausdividieren, dann die Ableitung der resultierenden Funktion bestimmen.
-              \item Wieso geht die zweite Methode bei der Funktion $f(x) = \frac{x^2+3x-1}{x+1}$ nicht?
-          \end{enumerate}
-
-
-    \item Beweise die Regel \( g(x) = k \cdot f(x) \Rightarrow g'(x) = k \cdot f'(x)\), indem du die Produktregel auf die Funktion $g(x) = k \cdot f(x)$ anwendest, wobei $k$ eine Konstante ist.
-
-    \item Beweise mit der Quotientenregel, dass die Ableitung der Funktion $f(x) = x^{-n}$ mit $n\in \N$ gegeben ist durch $f'(x) = -n\cdot x^{-n-1}$.
-
-    \item Sind \( f \) und \( g \) zwei Funktionen, so haben wir für die Ableitung ihres Produktes folgende Regel gefunden (Kurznotation):
-          \[
-              (f \cdot g)' = f' \cdot g + f \cdot g'.
-          \]
-          Entwickle eine entsprechende Regel für die Ableitung \( P' \) eines Produktes \( P \) aus drei Faktoren:
-          \[
-              P(x) = f(x) \cdot g(x) \cdot h(x); \quad \text{oder kurz: } P = f \cdot g \cdot h.
-          \]
-          Im Term für \( P' \) dürfen nur noch \( f \), \( g \) und \( h \) sowie deren Ableitungen \( f' \), \( g' \) und \( h' \) vorkommen.
-
-          Verwende die gefundene Regel, um die Funktion
-          \[
-              P(x) = x^3(x + 1)(x^2 - 1)
-          \]
-          abzuleiten. Der Term muss nicht vereinfacht werden.
-
-
-
-\end{enumerate}
-\clearpage
-\subsubsection*{Lösungen}
-\begin{enumerate}
-    \item Leite die folgenden Funktionen mit der Produktregel ab:
-          \begin{enumerate}
-              \item \( y' = 2x(1 - 3x^2) + x^2(-6x) = -12x^3 +2x\)
-              \item \( y' = 2(3x^2-4)+(2x+1)\cdot 6x  = 18x^2 + 6x - 8 \)
-              \item \( y' = (x^2+1) \cdot \frac{1}{2\sqrt{x}} + 2x\sqrt{x} = \frac{5}{2} x\sqrt{x} +\frac{1}{2\sqrt{x}}\)
-          \end{enumerate}
-
-
-
-    \item Leite die folgenden Funktionen mit der Quotientenregel ab:
-          \begin{enumerate}
-              \item $\frac{x\cdot 4 - (4x+1)\cdot 1}{x^2} = -\frac{1}{x^2}$
-              \item $\frac{(4x+1)\cdot 1 - x\cdot 4}{(4x+1)^2} = \frac{1}{(4x+1)^2}$
-              \item $\frac{(x^3+2)(2x-1) - (x^2-x)(3x^2)}{(x^3+2)^2} = \frac{-x^4+2x^3+4x-2}{(x^3+2)^2}$
-          \end{enumerate}
-
-    \item Gegeben ist die Funktion \( f(x) = (x^2 + 1)(3x - 4) \).
-          \begin{enumerate}
-              \item $f(x) = 3x^3 - 4x^2 + 3x - 4 \Rightarrow f'(x) = 9x^2 - 8x + 3$
-              \item \( f'(x) = (x^2 + 1)(3) + (3x - 4)(2x) = 9x^2 - 8x + 3 \)
-          \end{enumerate}
-
-    \item Gegeben ist \( f(x) = \frac{2x^3+4x^2+5x+6}{x^2} \).
-          \begin{enumerate}
-              \item \( f'(x) = \frac{(6x^2 + 8x + 5)x^2 - (2x^3 + 4x^2 + 5x + 6)(2x)}{x^4} \)
-              \item \( f(x) = 2x + 4 + \frac{5}{x} + \frac{6}{x^2} \Rightarrow f'(x) = 2 - \frac{5}{x^2} - \frac{12}{x^3} \)
-              \item Ausdividieren gibt $f(x) = \frac{x^2+3x-1}{x+1} = \frac{x^2}{x+1}+\frac{3x}{x+1}-\frac{1}{x+1}$. Die einzelnen Summanden sind aber nicht von der Form $y=x^n$ und lassen sich somit nicht mit der Potenzenregel ableiten.
-
-                    \textbf{Wichtig:} Die folgende verführerische Umformung ist falsch $\frac{x^2+3x-1}{x+1} \neq \frac{x^2+3x-1}{x} + \frac{x^2+3x-1}{1}$  \end{enumerate}
-
-
-
-    \item Weil $k$ konstant ist, gilt $\frac{d}{dx}k = 0$. Damit lautet die Produktregel
-          $$ g(x) = k \cdot f(x) \Rightarrow g'(x) = 0 \cdot f(x) + k \cdot f'(x) $$
-
-    \item \( f(x) = x^{-n} = \frac{1}{x^n}\). Die Ableitung des Zählers ist $\frac{d}{dx}1 = 0$. Damit lautet die Quotientenregel:
-          $$f'(x) = \frac{x^n \cdot 0 - 1\cdot n x^{n-1}}{(x^n)^2} = -\frac{nx^{n-1}}{x^{2n}} = -n x^{n-1-2n} = -n \cdot x^{-n-1}$$
-
-    \item Für \( P = f \cdot g \cdot h \) gilt:
-          \[
-              P' = f'gh + fg'h + fgh'
-          \]
-          Für \( P(x) = x^3(x + 1)(x^2 - 1) \) also:
-          \[
-              P'(x) = 3x^2(x+1)(x^2-1) + x^3(1)(x^2-1) + x^3(x+1)(2x)
-          \]
-\end{enumerate}
-\clearpage
-
 \subsubsection{Die Kettenregel}
 \begin{enumerate}
     \item 	Alice fährt Taxi in London. Der Preis $u$ in Pfund für eine Fahrt von $x$ Kilometern ist durch die Formel $u=2x+4$ gegeben. Der Preis $y$ in CHF kann durch den Wechselkurs $y=1.5\cdot u$ gefunden werden.
@@ -193,14 +15,14 @@ Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotiente
               \item 	Zeichen Sie die Graphen von $u$ als Funktion von $x$, von $y$ als Funktion von $u$ und von $y$ als Funktion von $x$ in die folgenden Koordinatensysteme (achten Sie auf die Achsenbeschriftung).
 
                     \begin{minipage}[t]{0.25\textwidth}
-                        \includegraphics[width=\textwidth]{media/KettenregelLA-1.png}
+                        \includegraphics[width=\textwidth]{im/KettenregelLA-1.png}
                     \end{minipage}
                     \begin{minipage}[t]{0.5\textwidth}
-                        \includegraphics[width=\textwidth]{media/KettenregelLA-2.png}
+                        \includegraphics[width=\textwidth]{im/KettenregelLA-2.png}
                     \end{minipage}
 
                     \begin{center}
-                        \includegraphics[width=0.36\textwidth]{media/KettenregelLA-3.png}
+                        \includegraphics[width=0.36\textwidth]{im/KettenregelLA-3.png}
                     \end{center}
 
 
@@ -243,9 +65,9 @@ In dieser Notation entspricht die Kettenregel dem \glqq Kürzen\grqq{} von $du$ 
 
 Wir merken uns:
 \begin{theo}
-[Kettenregel in der Notation $\frac{d}{dx}$]{}
-$$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
-\end{satz}
+    [Kettenregel in der Notation $\frac{d}{dx}$]{}
+    $$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
+\end{theo}
 
 \begin{example}
     {$f(x)= (x^3+1)^{10}$, $g(x)=\frac{1}{x^2-3}$, $h(x)=\left(\sqrt{x}+x\right)^3 $ }{}
@@ -261,7 +83,7 @@ $$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
     %     $$h(x)=\left(\sqrt{x}+x\right)^3 \Rightarrow h'(x)=3\left(\sqrt{x}+x\right)^2 \cdot \left(\frac{1}{2\sqrt{x}}+1\right) $$
     % \end{enumerate}
 
-    \vspace{10cm}
+    \kariert{20}
 \end{example}
 
 \begin{proof}
@@ -282,23 +104,23 @@ $$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
 \clearpage
 \subsubsection{Übungen}
 \begin{enumerate}
-    \item Bestimme die Ableitung der folgenden Funktionen:
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen:
           \begin{enumerate}
               \item $y = (x^2+1)^8$
               \item $y = \sqrt{3x^2+1}$
               \item $y= \frac{1}{(x^2+1)^3}= (x^2+1)^{-3}$
           \end{enumerate}
-    \item Die Kettenregel kann auch auf die Verkettung von mehr als zwei Funktionen angewendet werden. Leite die folgenden Funktion ab:
+    \item Die Kettenregel kann auch auf die Verkettung von mehr als zwei Funktionen angewendet werden. Leiten Sie die folgenden Funktionen ab:
           $$y = \sqrt{(x^2+1)^3+x}$$
-    \item Bestimme den Wert des Parameters \( a \in \mathbb{R} \) so, dass für die Funktion \( f \) gilt: \( f'(1) = 24 \).
+    \item Bestimmen Sie den Wert des Parameters \( a \in \mathbb{R} \) so, dass für die Funktion \( f \) gilt: \( f'(1) = 24 \).
           \begin{enumerate}
               \item \( f(x) = (2x - a)^3 \)
-              \item \( f(x) = -\dfrac{6}{\sqrt{a x}} \) (Hinweis: Du kannst die Funktion auf verschiedene Arten Ableiten: Direkt mit der Quotientenregel oder zuerst umformen zu $f(x) = -6 (ax)^{-1/2}$ )
+              \item \( f(x) = -\dfrac{6}{\sqrt{a x}} \) (Hinweis: Sie können die Funktion auf verschiedene Arten Ableiten: Direkt mit der Quotientenregel oder zuerst umformen zu $f(x) = -6 (ax)^{-\frac{1}{2}}$ )
               \item \( f(x) = \dfrac{2a}{a - 4x} \)
           \end{enumerate}
 
 
-    \item Bestimme die Gleichung der Tangente im Punkte \( P \) des Graphen der gegebenen Funktion \( f\colon x \mapsto y \).
+    \item Bestimmen Sie die Gleichung der Tangente im Punkte \( P \) des Graphen der gegebenen Funktion \( f\colon x \mapsto y \).
           \begin{enumerate}
               \item \( y = \dfrac{3 - x}{3x + 1}, \quad P(-2 , y_P) \)
               \item \( y = \dfrac{x^2 + 5}{x^2 - 2}, \quad P(3 , y_P) \)
@@ -312,36 +134,34 @@ $$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
                     %\item \( y = \dfrac{x^3}{x - 2}, \quad m = -4 \) 3 Lösungen!
           \end{enumerate}
 
-    \item Zeige: Die Gerade \( g\colon y = 2x \) ist Tangente der Kurve \( f\colon y = 4 \sqrt{2x - 4} \).
-
-
+    \item Zeigen Sie: Die Gerade \( g\colon y = 2x \) ist Tangente der Kurve \( f\colon y = 4 \sqrt{2x - 4} \).
 \end{enumerate}
 
 \clearpage
 \subsubsection*{Lösungen}
 \begin{enumerate}
-    \item Bestimme die Ableitung der folgenden Funktionen:
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen:
           \begin{enumerate}
               \item \( y' = 8(x^2+1)^7 \cdot 2x = 16x(x^2+1)^7 \)
               \item \( y' = \dfrac{1}{2\sqrt{3x^2+1}} \cdot 6x = \dfrac{3x}{\sqrt{3x^2+1}} \)
               \item \( y' = -3(x^2+1)^{-4} \cdot 2x = \dfrac{-6x}{(x^2+1)^4} \)
           \end{enumerate}
 
-    \item Lese die Funktion als Verkettung
+    \item Lesen Sie die Funktion als Verkettung
           $$ x \mapsto u = (x^2+1)^3+x \mapsto y = \sqrt{u}$$
 
           \[
               y' = \dfrac{1}{2\sqrt{(x^2+1)^3+x}} \cdot \left(3(x^2+1)^2 \cdot 2x + 1\right)
           \]
 
-    \item Bestimme den Wert des Parameters \( a \in \mathbb{R} \), so dass \( f'(1) = 24 \).
+    \item Bestimmen Sie den Wert des Parameters \( a \in \mathbb{R} \), so dass \( f'(1) = 24 \).
           \begin{enumerate}
               \item \( f'(x) = 3(2x - a)^2 \cdot 2 \Rightarrow f'(1) = 6(2 - a)^2 = 24 \Rightarrow a = 0 \text{ oder } a = 4 \)
               \item \( f'(x) = \dfrac{3}{x\sqrt{ax}} \Rightarrow f'(1) = \dfrac{3}{\sqrt{a}} = 24 \Rightarrow a = \dfrac{1}{64} \)
               \item \( f'(x) = \dfrac{8a}{(a - 4x)^2} \Rightarrow f'(1) = \dfrac{8a}{(a - 4)^2} = 24 \Rightarrow a = 3 \text{ oder } a = \frac{16}{3} \)
           \end{enumerate}
 
-    \item Bestimme die Gleichung der Tangente im Punkt \( P \).
+    \item Bestimmen Sie die Gleichung der Tangente im Punkt \( P \).
           \begin{enumerate}
               \item \( y = -\dfrac{2}{5}x - \dfrac{9}{5} \)
               \item \( y = -\dfrac{6}{7}x + \dfrac{32}{7} \)
@@ -354,11 +174,11 @@ $$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
               \item \( B_1 = (3, 1); B_2 = (-5, -5) \)
           \end{enumerate}
 
-    \item Zeige: \( g(x) = 2x \) ist Tangente an \( f(x) = 4\sqrt{2x - 4} \)
+    \item Zeigen Sie: \( g(x) = 2x \) ist Tangente an \( f(x) = 4\sqrt{2x - 4} \)
 
           $$f'(x) = g'(x) \iff \dfrac{4}{\sqrt{2x - 4}} = 2 \iff x = 4$$
 
-          Prüfe ob $f(4) = g(4)$ ist:
+          Prüfen Sie ob $f(4) = g(4)$ ist:
           $$ f(4) = 4\sqrt{2\cdot 4 -4} = 8, \quad g(4) = 2\cdot 4 = 8$$
 
           Also ist die Gerade \( g \) Tangente an den Graphen von \( f \) im Punkt \( (4, 8) \).
@@ -414,48 +234,45 @@ $$\frac{dy}{dx}= \frac{dy}{du}\cdot \frac{du}{dx}$$
 \clearpage
 \subsection{Die Ableitung der elementaren Funktionen}
 \subsubsection{ Die Ableitung trigonometrischer Funktionen}
-\begin{LA}
-    {Die Ableitung der Sinusfunktion}{}
-    \begin{enumerate}
-        \item Unten ist der Graph der Sinusfunktion im Bereich $x \in [0, 2\pi]$ dargestellt. Skizzieren Sie in das gleiche Koordinatensystem den ungefähren Verlauf des Graphen der Ableitung $\frac{d}{dx} \sin(x)$, indem Sie
-              die Steigung der Sinusfunktion schätzen. Was vermuten Sie?
-              \begin{center}
-                  \includegraphics[]{media/sinuskurve.png}
-              \end{center}
-    \end{enumerate}
-    In den folgenden Aufgaben wollen wir die Vermutung durch Betrachtungen am Differentialquotienten stützen. Die Ableitung der Sinusfunktion ist nach Definition der Grenzwert
-    $$
-        \lim_{h\rightarrow0} \frac{\sin(x+h)-\sin(x)}{h}
-    $$
-    Diesen Bruch kann man mit den sogenannten Additionstheoremen vereinfachen: Für alle Winkel $\alpha$ und $\beta$ gilt:
-    \begin{align*}
-        \sin(\alpha + \beta)  & = \sin(\alpha) \cos(\beta) +\cos(\alpha) \sin(\beta) \\
-        \cos( \alpha + \beta) & = \cos(\alpha)\cos (\beta) - \sin(\alpha)\sin(\beta)
-    \end{align*}
-    \begin{enumerate}[resume]
-        \item Zeigen Sie unter Verwendung der Additionstheoreme, dass man den Differenzenquotienten so umformen kann:
-              $$
-                  \frac{\sin(x+h)-\sin(x)}{h} = \sin(x)\cdot \frac{\cos(h)-1}{h} +\cos(x) \cdot \frac{\sin(h)}{h}
-              $$
-        \item Was passiert mit diesem Term, wenn $h$ gegen Null strebt? Stellen Sie Ihr Taschenrechner auf \emph{Bogenmass (rad)} ein und füllen Sie die folgende Tabelle aus.
-              \begin{center}
+\subsubsection*{Einführungsaufgabe}
+\begin{enumerate}
+    \item Unten ist der Graph der Sinusfunktion im Bereich $x \in [0, 2\pi]$ dargestellt. Skizzieren Sie in das gleiche Koordinatensystem den ungefähren Verlauf des Graphen der Ableitung $\frac{d}{dx} \sin(x)$, indem Sie
+          die Steigung der Sinusfunktion schätzen. Was vermuten Sie?
+          \begin{center}
+              \includegraphics[]{im/sinuskurve.png}
+          \end{center}
+\end{enumerate}
+In den folgenden Aufgaben wollen wir die Vermutung durch Betrachtungen am Differentialquotienten stützen. Die Ableitung der Sinusfunktion ist nach Definition der Grenzwert
+$$
+    \lim_{h\rightarrow0} \frac{\sin(x+h)-\sin(x)}{h}
+$$
+Diesen Bruch kann man mit den sogenannten Additionstheoremen vereinfachen: Für alle Winkel $\alpha$ und $\beta$ gilt:
+\begin{align*}
+    \sin(\alpha + \beta)  & = \sin(\alpha) \cos(\beta) +\cos(\alpha) \sin(\beta) \\
+    \cos( \alpha + \beta) & = \cos(\alpha)\cos (\beta) - \sin(\alpha)\sin(\beta)
+\end{align*}
+\begin{enumerate}[resume]
+    \item Zeigen Sie unter Verwendung der Additionstheoreme, dass man den Differenzenquotienten so umformen kann:
+          $$
+              \frac{\sin(x+h)-\sin(x)}{h} = \sin(x)\cdot \frac{\cos(h)-1}{h} +\cos(x) \cdot \frac{\sin(h)}{h}
+          $$
+    \item Was passiert mit diesem Term, wenn $h$ gegen Null strebt? Stellen Sie Ihr Taschenrechner auf \emph{Bogenmass (rad)} ein und füllen Sie die folgende Tabelle aus.
+          \begin{center}
 
 
-                  \begin{tabular}{c|c|c}
+              \begin{tabular}{c|c|c}
 
-                      $h$ (rad) & $\quad \frac{\cos(h)-1}{h} \quad$ & $\quad \frac{\sin(h)}{h} \quad$ \\ \hline
-                      $0.1$     &                                   & \parbox[0pt][3em][c]{0cm}{}     \\ \hline
-                      $0.01$    &                                   & \parbox[0pt][3em][c]{0cm}{}     \\\hline
-                      $0.001$   &                                   & \parbox[0pt][3em][c]{0cm}{}
-                  \end{tabular}
-              \end{center}
-              Was vermuten Sie für die Grenzwerte für $h \rightarrow 0$? Was ist demnach die Ableitung der Sinusfunktion?
+                  $h$ (rad) & $\quad \frac{\cos(h)-1}{h} \quad$ & $\quad \frac{\sin(h)}{h} \quad$ \\ \hline
+                  $0.1$     &                                   & \parbox[0pt][3em][c]{0cm}{}     \\ \hline
+                  $0.01$    &                                   & \parbox[0pt][3em][c]{0cm}{}     \\\hline
+                  $0.001$   &                                   & \parbox[0pt][3em][c]{0cm}{}
+              \end{tabular}
+          \end{center}
+          Was vermuten Sie für die Grenzwerte für $h \rightarrow 0$? Was ist demnach die Ableitung der Sinusfunktion?
 
-        \item Gehen Sie gleich vor, um die Ableitung der Cosinusfunktion zu bestimmen.
-        \item In der Tabelle in Aufgabe 3 haben Sie den Taschenrechner auf Bogenmass eingestellt. Was ändert sich, wenn Sie im Gradmass arbeiten? Welche Auswirkung hat das auf die Ableitung der Sinusfunktion?
-    \end{enumerate}
-
-\end{LA}
+    \item Gehen Sie gleich vor, um die Ableitung der Cosinusfunktion zu bestimmen.
+    \item In der Tabelle in Aufgabe 3 haben Sie den Taschenrechner auf Bogenmass eingestellt. Was ändert sich, wenn Sie im Gradmass arbeiten? Welche Auswirkung hat das auf die Ableitung der Sinusfunktion?
+\end{enumerate}
 \clearpage
 
 Mit dem Differentialquotienten können wir die Ableitung der Sinusfunktion bestimmen. Dazu verwenden wir das Additionstheorem (AT) für den Sinus:
@@ -471,27 +288,27 @@ Für den Differenzialquotienten folgt dann
 
 Die beiden Grenzwerte in den eckigen Klammern sind nicht einfach zu bestimmen. Die folgenden Hilfssätze – in der Mathematik spricht man von Lemmata – helfen uns weiter.
 
-\begin{satz}
+\begin{theo}
     {Lemma 1}{}
     Sei $h$ ein Winkel im Bogenmass, dann gilt
     $$\lim_{h\rightarrow0}\frac{\sin(h)}{h} =1$$
-\end{satz}
+\end{theo}
 \begin{proof}
     Betrachten wir die folgenden drei Flächen im Einheitskreis:
     \begin{center}
-        \includegraphics{media/bewSin1.png}
+        \includegraphics{im/bewSin1.png}
     \end{center}
     Der Flächeninhalt des Kreissektors mit Bogen der Länge $h$ beträgt
     $$ A_{\text{Sektor}} = \pi r^2\cdot \frac{h}{2\pi} = \frac{1}{2} h
     $$
     \begin{center}
-        \includegraphics{media/bewSin2.png}
+        \includegraphics{im/bewSin2.png}
     \end{center}
     Die Fläche des im Kreissektor einbeschriebenen, rechtwinkligen Dreiecks hat den Inhalt
     $$A_{\text{Einb}} = \frac{1}{2}\sin(h)\cos(h) $$
 
     \begin{center}
-        \includegraphics{media/bewSin3.png}
+        \includegraphics{im/bewSin3.png}
     \end{center}
     Die Fläche des dem Kreissektor umbeschriebenen, rechtwinkligen Dreiecks beträgt
     $$A_{\text{Umb}} =\frac{1}{2}\cdot1\cdot \tan(h) = \frac{\sin(h)}{2\cos(h)} $$
@@ -525,11 +342,11 @@ Die beiden Grenzwerte in den eckigen Klammern sind nicht einfach zu bestimmen. D
     Daraus folgt das Lemma.
 \end{proof}
 
-\begin{satz}
+\begin{theo}
     {Lemma 2}{}
     Sei $h$ ein Winkel im Bogenmass, dann gilt
     $$\lim_{h\rightarrow0}\frac{\cos(h)-1}{h} =0$$
-\end{satz}
+\end{theo}
 \begin{proof}
     Als Hilfsmittel wird der trigonometrischen Pythagoras benötigt: $\sin^2(h)+\cos^2(h) =1$
     \begin{align*}
@@ -549,7 +366,7 @@ $$
     \frac{d}{dx} \sin(x) = \sin(x)\cdot \left[\lim_{h\rightarrow0}\frac{\cos(h)-1}{h}\right] +\cos(x) \cdot \left[\lim_{h\rightarrow0}\frac{\sin(h)}{h} \right] = \sin(x) \cdot 0 + \cos(x) \cdot 1 = \cos(x)
 $$
 Analog lässt sich auch die Ableitung der Cosinusfunktion herleiten.
-\begin{satz}{Die Ableitung von Sinus und Cosinus}{}
+\begin{theo}{Die Ableitung von Sinus und Cosinus}{}
     Die Sinus- und Cosinusfunktion sind an jeder Stelle differenzierbar und für die Ableitungen gilt
     $$
         \frac{d}{dx}\sin(x) = \cos(x)
@@ -559,48 +376,45 @@ Analog lässt sich auch die Ableitung der Cosinusfunktion herleiten.
         \frac{d}{dx}\cos(x) = -\sin(x)
     $$
     ($x$ in rad)
-\end{satz}
+\end{theo}
 
 Mit der Quotientenregel kann man leicht auch die Ableitung der Tangensfunktion bestimmen (siehe Übungen)
-\begin{satz}
+\begin{theo}
     {Sie Ableitung der Tangensfunktion}{}
     Die Tangensfunktion ist an jeder Stelle im Definitionsbereich differenzierbar und es gilt:
     $$
         \frac{d}{dx}\tan(x) = \frac{1}{\cos^2(x)} = 1+ \tan^2(x)
     $$
-\end{satz}
+\end{theo}
 
 \clearpage
-\begin{ueb}
-    {}{}
-    \begin{enumerate}
-        \item Bestimme die Ableitung der folgenden Funktionen:
-              \begin{enumerate}
-                  \item $y= 3x\cdot \cos(x)$
-                  \item $y= \sin(2x)$
-                  \item $y= 2x\tan(x)$
-                  \item $y= \frac{\sin(x)}{x}$
-                  \item $ y= \frac{x}{\cos(x)}$
-                  \item $y =\sin^2(x) = (\sin(x))^2$
-                  \item $y = \sin(x^2)$
-                  \item $y=\sqrt{\cos(x)}$
-              \end{enumerate}
-        \item Bestimme die Gleichung der Tangente im Punkt $P$ des Graphen der gegebenen Funktion
-              \begin{enumerate}
-                  \item $ y= \cos(x), \quad P=\left(\frac{\pi}{2}, y_P\right)$
-                  \item $ y= \tan(x), \quad P=\left(\frac{\pi}{4}, y_P\right)$
-              \end{enumerate}
-        \item Verwenden Sie $\tan(x) = \frac{\sin(x)}{\cos(x)}$ und die Quotientenregel, um die Regel für die Ableitung der Tangensfunktion herzuleiten:
-              $$
-                  \frac{d}{dx}\tan(x) = \frac{1}{\cos^2(x)} = 1+ \tan^2(x)
-              $$
-    \end{enumerate}
-\end{ueb}
-
-\clearpage
-\emph{Lösungen:}
+\subsubsection*{Übungen}
 \begin{enumerate}
-    \item Bestimme die Ableitung der folgenden Funktionen:
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen:
+          \begin{enumerate}
+              \item $y= 3x\cdot \cos(x)$
+              \item $y= \sin(2x)$
+              \item $y= 2x\tan(x)$
+              \item $y= \frac{\sin(x)}{x}$
+              \item $ y= \frac{x}{\cos(x)}$
+              \item $y =\sin^2(x) = (\sin(x))^2$
+              \item $y = \sin(x^2)$
+              \item $y=\sqrt{\cos(x)}$
+          \end{enumerate}
+    \item Bestimmen Sie die Gleichung der Tangente im Punkt $P$ des Graphen der gegebenen Funktion
+          \begin{enumerate}
+              \item $ y= \cos(x), \quad P=\left(\frac{\pi}{2}, y_P\right)$
+              \item $ y= \tan(x), \quad P=\left(\frac{\pi}{4}, y_P\right)$
+          \end{enumerate}
+    \item Verwenden Sie $\tan(x) = \frac{\sin(x)}{\cos(x)}$ und die Quotientenregel, um die Regel für die Ableitung der Tangensfunktion herzuleiten:
+          $$
+              \frac{d}{dx}\tan(x) = \frac{1}{\cos^2(x)} = 1+ \tan^2(x)
+          $$
+\end{enumerate}
+\clearpage
+\subsubsection*{Lösungen}
+\begin{enumerate}
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen:
           \begin{enumerate}
               \item $y' = 3\cos(x) - 3x\sin(x)$
               \item $y' = 2\cos(2x)$
@@ -611,7 +425,7 @@ Mit der Quotientenregel kann man leicht auch die Ableitung der Tangensfunktion b
               \item $y' = 2x\cos(x^2)$
               \item $y' = -\frac{\sin(x)}{2\sqrt{\cos(x)}}$
           \end{enumerate}
-    \item Bestimme die Gleichung der Tangente im Punkt $P$ des Graphen der gegebenen Funktion
+    \item Bestimmen Sie die Gleichung der Tangente im Punkt $P$ des Graphen der gegebenen Funktion
           \begin{enumerate}
               \item $y= -x+\frac{\pi}{2}$
               \item $y= 2x+1-\frac{\pi}{2}$
@@ -658,48 +472,45 @@ Mit der Quotientenregel kann man leicht auch die Ableitung der Tangensfunktion b
 
 \clearpage
 \subsubsection{Die Ableitung der Exponentialfunktionen}
-\begin{LA}
-    {Die Ableitung der Exponentialfunktionen}{}
-    \begin{enumerate}
-        \item Betrachten Sie den Graphen der Funktion $f(x)=10^x$. Schätzen Sie den Wert von $f'(-0.4)$, indem Sie die entsprechende Tangente einzeichnen.
-              \begin{center}
-                  \includegraphics[scale=5]{media/Graph10hochx.png}
-              \end{center}
-        \item 	Zeigen Sie mit dem Differenzialquotienten und einer Umformung: Die Funktion $f(x)=10^x$ hat die Ableitung
-              $$f'(x)=10^x\cdot \lim_{h\rightarrow0} \frac{10^h-1}{h} $$
-        \item 	Füllen Sie die Tabelle aus und stützen Sie damit die Behauptung, dass die Ableitung von $f(x)=10^x$ wieder eine Exponentialfunktion ist, nämlich $f' (x)=c_{10}\cdot 10^x$ mit $c_{10}\approx 2.3026$.
-              \begin{center}
+\subsubsection*{Einführungsaufgabe}
+\begin{enumerate}
+    \item Betrachten Sie den Graphen der Funktion $f(x)=10^x$. Schätzen Sie den Wert von $f'(-0.4)$, indem Sie die entsprechende Tangente einzeichnen.
+          \begin{center}
+              \includegraphics[scale=5]{im/Graph10hochx.png}
+          \end{center}
+    \item 	Zeigen Sie mit dem Differenzialquotienten und einer Umformung: Die Funktion $f(x)=10^x$ hat die Ableitung
+          $$f'(x)=10^x\cdot \lim_{h\rightarrow0} \frac{10^h-1}{h} $$
+    \item 	Füllen Sie die Tabelle aus und stützen Sie damit die Behauptung, dass die Ableitung von $f(x)=10^x$ wieder eine Exponentialfunktion ist, nämlich $f' (x)=c_{10}\cdot 10^x$ mit $c_{10}\approx 2.3026$.
+          \begin{center}
 
-                  \begin{tabular}{c|c|c|c|c}
+              \begin{tabular}{c|c|c|c|c}
 
-                      $h$                & $0.1$              & $0.01$             & $0.001$            & $0.0001$                                      \\ \hline
-                      $\frac{10^h-1}{h}$ & $\phantom{2.3026}$ & $\phantom{2.3026}$ & $\phantom{2.3026}$ & $\phantom{2.3026}$\parbox[0pt][3em][c]{0cm}{}
-                  \end{tabular}
-              \end{center}
+                  $h$                & $0.1$              & $0.01$             & $0.001$            & $0.0001$                                      \\ \hline
+                  $\frac{10^h-1}{h}$ & $\phantom{2.3026}$ & $\phantom{2.3026}$ & $\phantom{2.3026}$ & $\phantom{2.3026}$\parbox[0pt][3em][c]{0cm}{}
+              \end{tabular}
+          \end{center}
 
-        \item Gehen Sie gleich vor, um die Behauptung zu stützen, dass $\frac{d}{dx} 2^x = c_2\cdot 2^x$ mit $c_2\approx 0.693$.
-        \item Halten wir fest: Die Ableitung von Exponentialfunktion der Form $y=a^x$ ist ein Vielfaches der Funktion selbst: $y'=c_a\cdot a^x$, wobei der Faktor $c_a$ von der gewählten Basis $a$ abhängig ist. Zum Beispiel ist $c_2 \approx 0.693$ und $c_{10} \approx 2.3026$.
+    \item Gehen Sie gleich vor, um die Behauptung zu stützen, dass $\frac{d}{dx} 2^x = c_2\cdot 2^x$ mit $c_2\approx 0.693$.
+    \item Halten wir fest: Die Ableitung von Exponentialfunktion der Form $y=a^x$ ist ein Vielfaches der Funktion selbst: $y'=c_a\cdot a^x$, wobei der Faktor $c_a$ von der gewählten Basis $a$ abhängig ist. Zum Beispiel ist $c_2 \approx 0.693$ und $c_{10} \approx 2.3026$.
 
-              Forschen: Finden Sie durch geschicktes Probieren eine Basis $a$, sodass der entsprechende Faktor $c_a \approx 1$ ist?
-              % \item Bestimmen Sie auf die gleiche Art, die Ableitung der Funktion $g(x)=e^x$, wobei $e = 2.7182818\cdots$ die Euler’sche Zahl ist. (Benutzen sie die entsprechende Taste für $e$ auf dem TR)
-              % \item 	Berechnen Sie den Logarithmus zur Basis $e$ von $10$ und von $2$ - also $\ln(10)$ und $\ln(2)$. Kommt Ihnen das Resultat bekannt vor? Ergänzen Sie die Vermutung unten:
-              % $$
-              % f(x)=a^x  \Longrightarrow f'(x)=\enspace\makebox[2in]{\hrulefill}
-              % $$
+          Forschen: Finden Sie durch geschicktes Probieren eine Basis $a$, sodass der entsprechende Faktor $c_a \approx 1$ ist?
+          % \item Bestimmen Sie auf die gleiche Art, die Ableitung der Funktion $g(x)=e^x$, wobei $e = 2.7182818\cdots$ die Euler’sche Zahl ist. (Benutzen sie die entsprechende Taste für $e$ auf dem TR)
+          % \item 	Berechnen Sie den Logarithmus zur Basis $e$ von $10$ und von $2$ - also $\ln(10)$ und $\ln(2)$. Kommt Ihnen das Resultat bekannt vor? Ergänzen Sie die Vermutung unten:
+          % $$
+          % f(x)=a^x  \Longrightarrow f'(x)=\enspace\makebox[2in]{\hrulefill}
+          % $$
 
-    \end{enumerate}
-
-\end{LA}
+\end{enumerate}
 \clearpage
 Unter all den Exponentialfunktionen der Form $f(x)=a^x,a>0$ gibt es eine mit einer ganz besonderen Eigenschaft – jene, die als Basis die Eulersche Zahl $e$ hat. Für diese gilt nämlich
 
-\begin{satz}
+\begin{theo}
     {Die Ableitung der Exponentialfunktion zur Basis $e$}{}
     Die Funktion $f(x)=e^x$ ist überall differenzierbar und es gilt
     $$
         \frac{d}{dx} e^x = e^x
     $$
-\end{satz}
+\end{theo}
 
 \begin{proof}
     Die Eulersche Zahl $e=2.71828\cdots$ haben wir bereits bei der Zinseszins-Rechnung kennengelernt. Dort wurde sie definiert als den Grenzwert
@@ -721,14 +532,14 @@ Unter all den Exponentialfunktionen der Form $f(x)=a^x,a>0$ gibt es eine mit ein
     \end{align*}
 \end{proof}
 Die Ableitungen von Exponentialfunktionen mit einer anderen Basis lassen sich leicht auf die $e^x$-Funktion zurückführen. Es gilt
-\begin{satz}
+\begin{theo}
     {Die Ableitung allgemeiner Exponentialfunktionen}{}
     Sei $f(x)=a^x$ mit $a>0$. Dann ist $f$ überall differenzierbar und es gilt
     $$
         f'(x)= \ln(a) \cdot a^x
     $$
 
-\end{satz}
+\end{theo}
 \begin{proof}
     $$f(x)=a^x = \left(e^{\ln(a)}\right)^x = e^{\ln(a)\cdot x} $$
     Mit der Kettenregel folgt dann:
@@ -737,30 +548,28 @@ Die Ableitungen von Exponentialfunktionen mit einer anderen Basis lassen sich le
 
 \end{proof}
 
-\begin{ueb}
-    {}{}
-    \begin{enumerate}
-        \item Bestimme die Ableitung der folgenden Funktionen:
-              \begin{enumerate}
-                  \item $y= 42\cdot e^x$
-                  \item $y= e^{5x}$
-                  \item $y= x\cdot e^x$
-                  \item $y= x^2 \cdot e^{-x}$
-                  \item $y= \frac{e^x}{x^2+1}$
-                  \item $y= e^{\sin(x)}$
-                  \item $y = \frac{e^x+e^{-x}}{2}$ (Diese Funktion heisst auch \emph{Cosinus-Hyperbolicus} und wird mit $\cosh(x)$ bezeichnet.)
-              \end{enumerate}
-        \item In welchem Kurvenpunkt hat die Funktion $f(x) = e^{2x}$ eine Tangente mit der Steigung $m=8$? Bestimme die Koordinaten des Punktes.
-        \item \emph{Challenge:} Der Graph der Funktion $f(x) = e^x$ sowie ein beliebiger Kurvenpunkt $P=(u,v)$ sind gegeben. In $P$ werden die Kurventangente $t$ sowie eine Parallele $s$ zur $y$-Achse eingezeichnet. Seien $S$ und $T$ die Schnittpunkte der beiden Geraden mit der $x$-Achse.
-              \begin{enumerate}
-                  \item Berechne den Abstand zwischen den Punkten $S$ und $T$.
-                  \item Bestimme $u$ so, dass die Tangente $t$ durch den Ursprung verläuft.
-                  \item Bestimme $u$ so, dass das Dreieck $STP$ den Flächeninhalt $A=e$ hat.
-              \end{enumerate}
-    \end{enumerate}
-\end{ueb}
+\subsubsection*{Übungen}
+\begin{enumerate}
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen:
+          \begin{enumerate}
+              \item $y= 42\cdot e^x$
+              \item $y= e^{5x}$
+              \item $y= x\cdot e^x$
+              \item $y= x^2 \cdot e^{-x}$
+              \item $y= \frac{e^x}{x^2+1}$
+              \item $y= e^{\sin(x)}$
+              \item $y = \frac{e^x+e^{-x}}{2}$ (Diese Funktion heisst auch \emph{Cosinus-Hyperbolicus} und wird mit $\cosh(x)$ bezeichnet.)
+          \end{enumerate}
+    \item In welchem Kurvenpunkt hat die Funktion $f(x) = e^{2x}$ eine Tangente mit der Steigung $m=8$? Bestimmen Sie die Koordinaten des Punktes.
+    \item \emph{Challenge:} Der Graph der Funktion $f(x) = e^x$ sowie ein beliebiger Kurvenpunkt $P=(u,v)$ sind gegeben. In $P$ werden die Kurventangente $t$ sowie eine Parallele $s$ zur $y$-Achse eingezeichnet. Seien $S$ und $T$ die Schnittpunkte der beiden Geraden mit der $x$-Achse.
+          \begin{enumerate}
+              \item Berechnen Sie den Abstand zwischen den Punkten $S$ und $T$.
+              \item Bestimmen Sie $u$ so, dass die Tangente $t$ durch den Ursprung verläuft.
+              \item Bestimmen Sie $u$ so, dass das Dreieck $STP$ den Flächeninhalt $A=e$ hat.
+          \end{enumerate}
+\end{enumerate}
 \clearpage
-\emph{Lösungen:}
+\subsubsection*{Lösungen}
 \begin{enumerate}
     \item
           \begin{enumerate}
@@ -817,58 +626,54 @@ Die Ableitungen von Exponentialfunktionen mit einer anderen Basis lassen sich le
 
 \pagebreak
 
-\subsubsection{Die Ableitung von Umkehrfunktionen}
-\begin{LA}
-    {Spieglein, Spieglein im ersten Quadrant}{}
-    In dieser Lernaufgabe werden Sie den Zusammenhang zwischen den Ableitungen von Funktionen ergründen, die Umkehrfunktionen voneinander sind.
+\subsection{Die Ableitung von Umkehrfunktionen}
+\subsubsection{Einführungsaufgabe}
+{Spieglein, Spieglein im ersten Quadrant}{}
+In dieser Einführungsaufgabe werden Sie den Zusammenhang zwischen den Ableitungen von Funktionen ergründen, die Umkehrfunktionen voneinander sind.
 
-    % Zur Erinnerung: Zu jeder bijektiven Funktion $f$ gibt es eine Umkehrfunktion $f^{-1}$ mit der Eigenschaft, dass
-    % $$f^{-1}(f(x)) = f(f^{-1}(x)) = x$$
-    % Die Graphen von $f$ und von $f^{-1}$ sind spiegelsymmetrisch bezüglich der Winkelhalbierenden des 1. und 3. Quadranten. Damit lässt sich der Zusammenhang zwischen den Ableitungen durch geometrische Überlegungen finden.
+% Zur Erinnerung: Zu jeder bijektiven Funktion $f$ gibt es eine Umkehrfunktion $f^{-1}$ mit der Eigenschaft, dass
+% $$f^{-1}(f(x)) = f(f^{-1}(x)) = x$$
+% Die Graphen von $f$ und von $f^{-1}$ sind spiegelsymmetrisch bezüglich der Winkelhalbierenden des 1. und 3. Quadranten. Damit lässt sich der Zusammenhang zwischen den Ableitungen durch geometrische Überlegungen finden.
 
-    \begin{enumerate}
-        \item Betrachten wir als erstes die Wurzelfunktionen. Deren Ableitung haben wir schon mit dem Differentialquotienten hergeleitet. In dieser Aufgabe wollen wir die Ableitung der Wurzelfunktion noch einmal auf einem anderen Weg finden, indem wir sie als Umkehrfunktion der Quadratfunktion betrachten. Sei also $f(x)= \sqrt{x}$ und $g(x) = f^{-1}(x)=x^2$ (mit $x\ge0$).
+\begin{enumerate}
+    \item Betrachten wir als erstes die Wurzelfunktionen. Deren Ableitung haben wir schon mit dem Differentialquotienten hergeleitet. In dieser Aufgabe wollen wir die Ableitung der Wurzelfunktion noch einmal auf einem anderen Weg finden, indem wir sie als Umkehrfunktion der Quadratfunktion betrachten. Sei also $f(x)= \sqrt{x}$ und $g(x) = f^{-1}(x)=x^2$ (mit $x\ge0$).
+          \begin{center}
+              \includegraphics[scale=1.5]{im/spiegleinspieglein.png}
+          \end{center}
+          Die Tatsache, dass die Graphen symmetrisch bezüglich der Winkelhalbbierenden verlaufen, können wir ausnutzen, um die Ableitung der Wurzelfunktion zu finden.
+          \begin{enumerate}
+              \item 	Zeichnen Sie die Tangenten an die Graphen in den Punkten $(4,2)$ bzw. $(2,4)$ ein.
+              \item Erklären Sie: Wieso entspricht die Steigung der einen Tangente dem Kehrwert der Steigung der anderen Tangente?
+              \item Berechnen Sie die Steigung $g'(2)$ (mit der üblichen Regel für Potenzen). Was ist demnach $f'(4)$?
+              \item Zeigen Sie auf die gleiche Weise, dass $f' (9)=\frac{1}{6}$ ist.
+              \item Erklären Sie, wie man auf diese Weise die Ableitung $f'(x)=\frac{1}{2\sqrt{x}}$ finden kann.
+          \end{enumerate}
+\end{enumerate}
+
+Die Idee aus Aufgabe 1 kann auch auf andere Paare von Funktion und Umkehrfunktion übertragen werden:
+\begin{enumerate}[resume]
+    \item Wir betrachten als nächstes die Exponentialfunktion und den Logarithmus zur Basis $e$:
+          \begin{center}
               \begin{center}
-                  \includegraphics[scale=1.5]{media/spiegleinspieglein.png}
+                  \includegraphics[scale=1.5]{im/spiegleinspiegleinMitLn.png}
               \end{center}
-              Die Tatsache, dass die Graphen symmetrisch bezüglich der Winkelhalbbierenden verlaufen, können wir ausnutzen, um die Ableitung der Wurzelfunktion zu finden.
-              \begin{enumerate}
-                  \item 	Zeichnen Sie die Tangenten an die Graphen in den Punkten $(4|2)$ bzw. $(2|4)$ ein.
-                  \item Erklären Sie: Wieso entspricht die Steigung der einen Tangente dem Kehrwert der Steigung der anderen Tangente?
-                  \item Berechnen Sie die Steigung $g'(2)$ (mit der üblichen Regel für Potenzen). Was ist demnach $f'(4)$?
-                  \item Zeigen Sie auf die gleiche Weise, dass $f' (9)=\frac{1}{6}$ ist.
-                  \item Erklären Sie, wie man auf diese Weise die Ableitung $f'(x)=\frac{1}{2\sqrt{x}}$ finden kann.
-              \end{enumerate}
-    \end{enumerate}
+          \end{center}
+          \begin{enumerate}
+              \item Berechnen Sie $\ln'(3)$. Nutzen Sie dazu die in der Skizze eingezeichneten Punkte und die Ableitungsregel für die Funktion $g(x)=e^x$
+              \item Geben Sie allgemein die Gleichung von $\ln'(x)$ an.
+          \end{enumerate}
+    \item Challenge 1: Die Beziehung zwischen der Ableitung einer Funktion $f$ und jener ihrer Umkehrfunktion $g=f^{-1}$ kann auch als Formel angeben werden:
+          \begin{enumerate}
+              \item Führen Sie die Überlegungen aus den Aufgaben 1 und 2 allgemein durch und geben Sie eine Formel an, mit der man die Ableitung einer Funktion $f$ aus der Ableitung ihrer Umkehrfunktion $g=f^{-1}$ berechnen kann.
+              \item Die Formel aus Aufgabe (a) kann auch mit der Kettenregel hergeleitet werden. Leiten Sie dazu beide Seiten der Gleichung $g(f(x)) = x$ ab und lösen Sie die erhalten Gleichung nach $f'(x)$ auf.
+          \end{enumerate}
+    \item Challenge 2: Beweisen Sie mit der Formel aus Aufgabe 3
+          $$ \arcsin'(x) = \frac{1}{\sqrt{1-x^2}}$$
 
-    Die Idee aus Aufgabe 1 kann auch auf andere Paare von Funktion und Umkehrfunktion übertragen werden:
-    \begin{enumerate}[resume]
-        \item Wir betrachten als nächstes die Exponentialfunktion und den Logarithmus zur Basis $e$:
-              \begin{center}
-                  \begin{center}
-                      \includegraphics[scale=1.5]{media/spiegleinspiegleinMitLn.png}
-                  \end{center}
-              \end{center}
-              \begin{enumerate}
-                  \item Berechnen Sie $\ln'(3)$. Nutzen Sie dazu die in der Skizze eingezeichneten Punkte und die Ableitungsregel für die Funktion $g(x)=e^x$
-                  \item Geben Sie allgemein die Gleichung von $\ln'(x)$ an.
-              \end{enumerate}
-        \item Challenge 1: Die Beziehung zwischen der Ableitung einer Funktion $f$ und jener ihrer Umkehrfunktion $g=f^{-1}$ kann auch als Formel angeben werden:
-              \begin{enumerate}
-                  \item Führen Sie die Überlegungen aus den Aufgaben 1 und 2 allgemein durch und geben Sie eine Formel an, mit der man die Ableitung einer Funktion $f$ aus der Ableitung ihrer Umkehrfunktion $g=f^{-1}$ berechnen kann.
-                  \item Die Formel aus Aufgabe (a) kann auch mit der Kettenregel hergeleitet werden. Leiten Sie dazu beide Seiten der Gleichung $g(f(x)) = x$ ab und lösen Sie die erhalten Gleichung nach $f'(x)$ auf.
-              \end{enumerate}
-        \item Challenge 2: Beweisen Sie mit der Formel aus Aufgabe 3
-              $$ \arcsin'(x) = \frac{1}{\sqrt{1-x^2}}$$
+\end{enumerate}
 
-    \end{enumerate}
-
-
-\end{LA}
-
-
-Die Ergebnisse der Lernaufgabe lassen sich wie folgt Zusammenfassen:
-\begin{satz}
+Die Ergebnisse der Einführungsaufgabe lassen sich wie folgt Zusammenfassen:
+\begin{theo}
     {Ableitung von Umkehrfunktionen}{}
     Sei $f: ]a,b[\rightarrow\mathbb{W}$ eine bijektive, differenzierbare Funktion und sei $g=f^{-1}$ ihre Umkehrfunktion. Dann gilt:
     $$f'(x) = \frac{1}{g'(f(x))}$$
@@ -880,7 +685,7 @@ Die Ergebnisse der Lernaufgabe lassen sich wie folgt Zusammenfassen:
         \arccos'(x) & = - \frac{1}{\sqrt{1-x^2}} \\
         \arctan'(x) & = \frac{1}{1+x^2}          \\
     \end{align*}
-\end{satz}
+\end{theo}
 
 \begin{proof}
     Für die Funktionen $f$ und $g=f^{-1}$ gilt:
@@ -892,25 +697,22 @@ Die Ergebnisse der Lernaufgabe lassen sich wie folgt Zusammenfassen:
 \end{proof}
 
 \clearpage
-\begin{ueb}
-    {}{}
-    \begin{enumerate}
-        \item Bestimme die Ableitung der folgenden Funktionen:
-              \begin{enumerate}
-                  \item $y= x^2 \cdot \ln(x)$
-                  \item $y= \ln(2-3x)$
-                  \item $y=\ln(\cos(x))$
-                  \item $y= \ln\left(\frac{x}{x+1}\right)$
+\subsubsection{Übungen}
+\begin{enumerate}
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen:
+          \begin{enumerate}
+              \item $y= x^2 \cdot \ln(x)$
+              \item $y= \ln(2-3x)$
+              \item $y=\ln(\cos(x))$
+              \item $y= \ln\left(\frac{x}{x+1}\right)$
 
 
-              \end{enumerate}
-        \item Bestimme die Ableitung der Funktion $f(x) = \ln(2x)$. Erkläre das überraschende Resultat mit dem Logarithmusgesetz $\ln(a\cdot b) = \ln(a) + \ln(b)$.
-        \item Bestimme die Gleichung der Tangente, welche die Kurve $y=e^x\cdot \ln(x)$ in deren Nullstelle berührt.
-    \end{enumerate}
-\end{ueb}
-
+          \end{enumerate}
+    \item Bestimmen Sie die Ableitung der Funktion $f(x) = \ln(2x)$. Erklären Sie das überraschende Resultat mit dem Logarithmusgesetz $\ln(a\cdot b) = \ln(a) + \ln(b)$.
+    \item Bestimmen Sie die Gleichung der Tangente, welche die Kurve $y=e^x\cdot \ln(x)$ in deren Nullstelle berührt.
+\end{enumerate}
 \clearpage
-\emph{Lösungen:}
+\subsubsection*{Lösungen}
 \begin{enumerate}
     \item
           \begin{enumerate}
@@ -924,114 +726,73 @@ Die Ergebnisse der Lernaufgabe lassen sich wie folgt Zusammenfassen:
     \item $f'(x) = \frac{1}{x}$
     \item Nullstelle bei $x=1$, Tangente: $y= ex-e$
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \clearpage
-\subsubsection{Höhere Ableitungen}
-\begin{LA}
-    {Von der Ableitung zum Funktionsgraphen}{}
-    \begin{enumerate}
-        \item Skizzieren Sie den Graphen der quadratischen Funktion $f(x)=12x^2-24x$. Sie müssen nicht allzu präzise sein, der grobe Verlauf und die Nullstellen reichen aus.
-              % \begin{center}
-              %     \includegraphics[scale=1.5]{media/KS-hoereAbleitung.png}
-              % \end{center}
+\subsection{Höhere Ableitungen}
+\subsubsection*{Einführungsaufgabe}
+\begin{enumerate}
+    \item Skizzieren Sie den Graphen der quadratischen Funktion $f(x)=12x^2-24x$. Sie müssen nicht allzu präzise sein, der grobe Verlauf und die Nullstellen reichen aus.
+          % \begin{center}
+          %     \includegraphics[scale=1.5]{media/KS-hoereAbleitung.png}
+          % \end{center}
 
-              \begin{center}
-                  \begin{tikzpicture}
-                      % Achsen
-                      \draw[->, thick] (-1,0) -- (9,0) node[right] {$x$};
-                      \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$};
+          \begin{center}
+              \begin{tikzpicture}
+                  % Achsen
+                  \draw[->, thick] (-1,0) -- (9,0) node[right] {$x$};
+                  \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$};
 
-                      % Beschriftungen der Achsen
-                      \foreach \x in {1,2,3,4} {
-                              \draw (2*\x,-0.1) -- (2*\x,0.1);
-                              \node[below] at (2*\x,-0.1) {\x };
-                          }
-                  \end{tikzpicture}
-              \end{center}
+                  % Beschriftungen der Achsen
+                  \foreach \x in {1,2,3,4} {
+                          \draw (2*\x,-0.1) -- (2*\x,0.1);
+                          \node[below] at (2*\x,-0.1) {\x };
+                      }
+              \end{tikzpicture}
+          \end{center}
 
-        \item Betrachten Sie nun die Funktion $g(x)=4x^3-12x^2$. Auch von dieser Funktion soll eine ungefähre Skizze gefertigt werden. Dies ist jedoch nicht mehr so einfach, schliesslich es ist keine quadratische Funktion! Jedoch gilt: $g'(x)=f(x)$. Nutzen Sie diese Information, um den Graphen von $g$ ungefähr zu skizzieren. Berechnen Sie die Nullstellen wieder exakt.
-              % \begin{center}
-              %     \includegraphics[scale=1.5]{media/KS-hoereAbleitung.png}
-              % \end{center}
+    \item Betrachten Sie nun die Funktion $g(x)=4x^3-12x^2$. Auch von dieser Funktion soll eine ungefähre Skizze gefertigt werden. Dies ist jedoch nicht mehr so einfach, schliesslich es ist keine quadratische Funktion! Jedoch gilt: $g'(x)=f(x)$. Nutzen Sie diese Information, um den Graphen von $g$ ungefähr zu skizzieren. Berechnen Sie die Nullstellen wieder exakt.
+          % \begin{center}
+          %     \includegraphics[scale=1.5]{media/KS-hoereAbleitung.png}
+          % \end{center}
 
-              \begin{center}
-                  \begin{tikzpicture}
-                      % Achsen
-                      \draw[->, thick] (-1,0) -- (9,0) node[right] {$x$};
-                      \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$};
+          \begin{center}
+              \begin{tikzpicture}
+                  % Achsen
+                  \draw[->, thick] (-1,0) -- (9,0) node[right] {$x$};
+                  \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$};
 
-                      % Beschriftungen der Achsen
-                      \foreach \x in {1,2,3,4} {
-                              \draw (2*\x,-0.1) -- (2*\x,0.1);
-                              \node[below] at (2*\x,-0.1) {\x };
-                          }
-                  \end{tikzpicture}
-              \end{center}
-              \pagebreak
+                  % Beschriftungen der Achsen
+                  \foreach \x in {1,2,3,4} {
+                          \draw (2*\x,-0.1) -- (2*\x,0.1);
+                          \node[below] at (2*\x,-0.1) {\x };
+                      }
+              \end{tikzpicture}
+          \end{center}
+          \pagebreak
 
-        \item Skizzieren Sie nun den Graphen von $h(x)=x^4-4x^3$
-              % \begin{center}
-              %     \includegraphics[scale=1.5]{media/KS-hoereAbleitung.png}
-              % \end{center}
+    \item Skizzieren Sie nun den Graphen von $h(x)=x^4-4x^3$
+          % \begin{center}
+          %     \includegraphics[scale=1.5]{media/KS-hoereAbleitung.png}
+          % \end{center}
 
-              \begin{center}
-                  \begin{tikzpicture}
-                      % Achsen
-                      \draw[->, thick] (-1,0) -- (9,0) node[right] {$x$};
-                      \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$};
+          \begin{center}
+              \begin{tikzpicture}
+                  % Achsen
+                  \draw[->, thick] (-1,0) -- (9,0) node[right] {$x$};
+                  \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$};
 
-                      % Beschriftungen der Achsen
-                      \foreach \x in {1,2,3,4} {
-                              \draw (2*\x,-0.1) -- (2*\x,0.1);
-                              \node[below] at (2*\x,-0.1) {\x };
-                          }
-                  \end{tikzpicture}
-              \end{center}
-        \item Bob möchte den Graphen der Funktion $b(x)=x^4-3x^2$ ungefähr skizzieren. Wie könnte er vorgehen?
-    \end{enumerate}
-\end{LA}
+                  % Beschriftungen der Achsen
+                  \foreach \x in {1,2,3,4} {
+                          \draw (2*\x,-0.1) -- (2*\x,0.1);
+                          \node[below] at (2*\x,-0.1) {\x };
+                      }
+              \end{tikzpicture}
+          \end{center}
+    \item Bob möchte den Graphen der Funktion $b(x)=x^4-3x^2$ ungefähr skizzieren. Wie könnte er vorgehen?
+\end{enumerate}
 \clearpage
-Einige der Erkenntnisse aus der Einführungsaufgabe – die genauen Rückschlüsse von der Gestalt der Ableitung auf den Graphen der Funktion – werden zu einem späteren Zeitpunkt vertieft werden (Siehe \Cref{speziellePte}). Für den Moment halten wir fest, dass eine differenzierbare Funktion mehrmals abgeleitet werden kann:
-\begin{definition}
-    {Höhere Ableitung}{}
+Einige der Erkenntnisse aus der Einführungsaufgabe – die genauen Rückschlüsse von der Gestalt der Ableitung auf den Graphen der Funktion – werden zu einem späteren Zeitpunkt vertieft werden. Für den Moment halten wir fest, dass eine differenzierbare Funktion mehrmals abgeleitet werden kann:
+\begin{deff}
+    [Höhere Ableitung]{}
     Sei $f$ eine differenzierbare Funktion. Da die erste Ableitung $f'$ selbst wieder eine Funktion ist, kann man auch diese in der Regel wieder Ableiten und gelangt so zur zweiten Ableitung der Funktion $f$.
 
     Schreibweise:
@@ -1042,10 +803,9 @@ Einige der Erkenntnisse aus der Einführungsaufgabe – die genauen Rückschlüs
     Die $n$-te Ableitung ($n\in \N$) der Funktion bezeichnet man allgemein mit
     $$f^{(n)} \text{ oder } \frac{d^n f}{dx^n} $$
 
-\end{definition}
+\end{deff}
 
-\begin{bsp}
-    {}{}
+\begin{example}
     Gegeben ist die Funktion $f(x)=7x^{10}-5x^3+x$. Die erste Ableitung der Funktion ist
     $$f'(x)=70x^9-15x^2+1$$
     Die zweite Ableitung lautet
@@ -1055,52 +815,48 @@ Einige der Erkenntnisse aus der Einführungsaufgabe – die genauen Rückschlüs
     Die vierte
     $$f^{(4)}(x)=35280x^6$$
     Und so weiter \dots
-\end{bsp}
+\end{example}
 \clearpage
-\begin{ueb}
-    {}{}
-    \begin{enumerate}
-        \item Bestimme die 2. Ableitung der gegebenen Funktion.
-              \begin{enumerate}
-                  \item \( f(x) = 3x^5 + 4x - 2 \)
-                  \item \( f(x) = \frac{1}{12}x^4 - \frac{1}{6}x^3 + \frac{1}{2}x^2 \)
-                  \item \( f(x) = (5x - 2)^2 \)
-              \end{enumerate}
-        \item
-              \begin{enumerate}
-                  \item Bestimme die Ableitungen \( f', f'', f^{(3)}, f^{(4)} \) und \( f^{(5)} \) der angegebenen Funktion.
-                        \begin{enumerate}
-                            \item \( f(x) = x^3 \)
-                            \item \( f(x) = x^4 \)
-                            \item \( f(x) = x^5 \)
-                            \item \( f(x) = x^6 \)
-                        \end{enumerate}
-                  \item Wie lautet die 5. Ableitung \( f^{(5)} \) für die Funktion \( f(x) = x^n,\ n \in \mathbb{N} \) mit \( n \geq 5 \)?
-                  \item Lässt sich eine Potenzfunktion \( f \) mit \( f(x) = x^n \ (n \in \mathbb{N}) \) beliebig oft ableiten?
-              \end{enumerate}
+\subsubsection*{Übungen}
+\begin{enumerate}
+    \item Bestimmen Sie die 2. Ableitung der gegebenen Funktion.
+          \begin{enumerate}
+              \item \( f(x) = 3x^5 + 4x - 2 \)
+              \item \( f(x) = \frac{1}{12}x^4 - \frac{1}{6}x^3 + \frac{1}{2}x^2 \)
+              \item \( f(x) = (5x - 2)^2 \)
+          \end{enumerate}
+    \item
+          \begin{enumerate}
+              \item Bestimmen Sie die Ableitungen \( f', f'', f^{(3)}, f^{(4)} \) und \( f^{(5)} \) der angegebenen Funktion.
+                    \begin{enumerate}
+                        \item \( f(x) = x^3 \)
+                        \item \( f(x) = x^4 \)
+                        \item \( f(x) = x^5 \)
+                        \item \( f(x) = x^6 \)
+                    \end{enumerate}
+              \item Wie lautet die 5. Ableitung \( f^{(5)} \) für die Funktion \( f(x) = x^n,\ n \in \mathbb{N} \) mit \( n \geq 5 \)?
+              \item Lässt sich eine Potenzfunktion \( f \) mit \( f(x) = x^n \ (n \in \mathbb{N}) \) beliebig oft ableiten?
+          \end{enumerate}
 
-        \item Gib eine mögliche Funktionsgleichung \( y = f(x) \) mit der gegebenen Eigenschaft an.
-              \begin{enumerate}
-                  \item \( y' = x^2 \)
-                  \item \( y'' = x^2 \)
-                  \item \( y''' = x^2 \)
-              \end{enumerate}
+    \item Geben Sie eine mögliche Funktionsgleichung \( y = f(x) \) mit der gegebenen Eigenschaft an.
+          \begin{enumerate}
+              \item \( y' = x^2 \)
+              \item \( y'' = x^2 \)
+              \item \( y''' = x^2 \)
+          \end{enumerate}
 
-        \item Gegeben ist die Funktion $f(x) = \sin(x)$. Bestimme
-              \begin{enumerate}
-                  \item $f'(x), f''(x), f'''(x)$ und $f^{(4)}(x)$.
-                  \item $f^{(11)}(x)$ und $f^{(101)}(x)$
-              \end{enumerate}
+    \item Gegeben ist die Funktion $f(x) = \sin(x)$. Bestimme
+          \begin{enumerate}
+              \item $f'(x), f''(x), f'''(x)$ und $f^{(4)}(x)$.
+              \item $f^{(11)}(x)$ und $f^{(101)}(x)$
+          \end{enumerate}
 
-        \item Sei nun $y=e^{2x}$. Bestimme die Ableitungen $y', y''$ und $y^{(10)}$
+    \item Sei nun $y=e^{2x}$. Bestimme die Ableitungen $y', y''$ und $y^{(10)}$
 
-        \item Gegeben ist $g(x) = x\cdot e^x$. Bestimme $g'(x)$ und $g''(x)$. Wie lautet wohl eine Formel für die $n$-te Ableitung $g^{(n)}(x)$?
-    \end{enumerate}
-
-\end{ueb}
-
+    \item Gegeben ist $g(x) = x\cdot e^x$. Bestimme $g'(x)$ und $g''(x)$. Wie lautet wohl eine Formel für die $n$-te Ableitung $g^{(n)}(x)$?
+\end{enumerate}
 \clearpage
-\emph{Lösungen:}
+\subsubsection*{Lösungen}
 \begin{enumerate}
     \item
           \begin{enumerate}
@@ -1187,4 +943,3 @@ Einige der Erkenntnisse aus der Einführungsaufgabe – die genauen Rückschlüs
               g^{(n)}(x) & = (x+n)e^x
           \end{align*}
 \end{enumerate}
-
