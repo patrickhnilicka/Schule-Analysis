@@ -126,7 +126,7 @@ Die Regel \ref*{satz:AbleitungPotenzfu} für die Ableitung von Potenzfunktionen 
           \end{enumerate}
 
           %   \item In welchen Punkten hat der Graph der Funktion \( f \colon y = x^3 - 6x^2 + 2x + 8 \) die Steigung \( m = 2 \)?
-    \item Die momentane Geschwindigkeit eines Teilchens zur Zeit $t$ ist gegeben durch die Funktion \( v(t) = t^3 - 6t^2 + 2t + 8 \) [$m/s$]. Zu welchen Zeitpunkten beträgt die momentane Beschleunigung \( a = 2 \) [$m/s^2$]?
+          % \item Die momentane Geschwindigkeit eines Teilchens zur Zeit $t$ ist gegeben durch die Funktion \( v(t) = t^3 - 6t^2 + 2t + 8 \) [$m/s$]. Zu welchen Zeitpunkten beträgt die momentane Beschleunigung \( a = 2 \) [$m/s^2$]?
 
     \item Bestimmen Sie \( a \) so, dass beim Graphen der Funktion \( f \colon y = x^4 - 7x^2 + ax \) bei \( x = 2 \) die Steigung \( m = 3 \) beträgt.
 
@@ -168,8 +168,8 @@ Die Regel \ref*{satz:AbleitungPotenzfu} für die Ableitung von Potenzfunktionen 
 
           %   \item \textbf{Steigung \( m = 2 \) bei \( f(x) = x^3 - 6x^2 + 2x + 8 \)}  
           %   Lösung: \( P_1 = (0,8) \quad \text{und} \quad P_2 = (4, -16) \)
-    \item \textbf{Beschleunigung \( a = 2 \) bei \( v(t) = t^3 - 6t^2 + 2t + 8 \)}
-          Lösung: \( t_1 = 0 \quad \text{und} \quad t_2 = 4 \)
+          % \item \textbf{Beschleunigung \( a = 2 \) bei \( v(t) = t^3 - 6t^2 + 2t + 8 \)}
+          %   Lösung: \( t_1 = 0 \quad \text{und} \quad t_2 = 4 \)
 
     \item \textbf{Bestimme \( a \) für Steigung \( m = 3 \) bei \( x = 2 \)}
           Lösung: \( a = -1 \)
@@ -278,3 +278,355 @@ $$\frac{d}{dx}\left(c\cdot f(x)\right) = c\cdot \frac{d}{dx} f(x)$$
                           & = c\cdot \frac{d}{dx}f(x)
     \end{align*}
 \end{proof}
+
+\clearpage
+\subsubsection*{Beweise der Ableitungsregeln}
+
+Die Ableitungsregeln lassen sich damit beweisen, dass man die entsprechenden Differenzialquotienten umformt und die Grenzwertsätze verwendet. Die Beweise sind etwas technisch, aber die Mühe lohnt sich: Dank diesen Umformungen werden wir in Zukunft alle Polynomfunktionen ohne Einsatz des Differenzialquotienten ableiten können!
+
+Der Satz \ref*{satz:AbleitungPotenzfu} zur Ableitung von Potenzfunktionen beweisen wir an diese Stelle nur für den Fall, dass der Exponent $n$ eine natürliche Zahl ist. Die anderen Fälle könnte man zwar durchaus auch mit dem Differentialquotienten beweisen, aber später werden wir eine Methode entwickeln, mit der es einiges eleganter geht.
+
+\emph{Behauptung 1:} Sei $n\in \N$. Dann gilt
+$\frac{d}{dx} x^n = n\cdot x^{n-1}$
+\begin{proof}
+    Mit dem Differentialquotienten erhält man:
+    $$\frac{d}{dx} x^n=\lim_{h\rightarrow0}\frac{(x+h)^n-x^n}{h}$$
+    Damit man den Grenzwert bestimmen kann, muss man in dieser Situation den Zähler so lange umformen, bis man ein $h$ ausklammern kann, um anschliessend zu kürzen. Zur Vereinfachung von $(x+h)^n$ verwenden wir das Pascalsche Dreieck:
+
+    \[
+        \begin{array}{lccccccccc}
+            n=0 &   &   &                    &                    & 1                  &                    &   &   &   \\
+            n=1 &   &   &                    & 1                  &                    & \textcolor{red}{1} &   &   &   \\
+            n=2 &   &   & 1                  &                    & \textcolor{red}{2} &                    & 1 &   &   \\
+            n=3 &   & 1 &                    & \textcolor{red}{3} &                    & 3                  &   & 1 &   \\
+            n=4 & 1 &   & \textcolor{red}{4} &                    & 6                  &                    & 4 &   & 1
+        \end{array}
+    \]
+
+    Offensichtlich gilt:
+    $$(x+h)^n = x^n + \textcolor{red}{n}\cdot x^{n-1}h + \text { Terme mit } h^2 \text{ oder höher}$$
+
+    % Der zweite Eintrag in der $n$-ten Zeile des Dreiecks entspricht dem Koeffizient von $h^{n-1}$ im Term $(x+h)^n$.  
+
+
+    Für die Ableitung der Potenzfunktion folgt:
+    \begin{align*}
+        \frac{d}{dx} x^n & = \lim_{h\rightarrow 0}\frac{\left( x^n + n\cdot x^{n-1}h + \text { Terme mit } h^2 \text{ oder höher} \right)- x^n}{h}
+    \end{align*}
+
+    Die beiden Summanden in $x^n$ heben sich auf. Beim übriggebliebenen Zähler kann man anschliessend $h$ ausklammern:
+    \begin{align*}
+        \frac{d}{dx} x^n & = \lim_{h\rightarrow 0} \frac{h \left(n\cdot x^{n-1} + \text { Terme mit } h^1 \text{ oder höher} \right)}{h} \\
+                         & = \lim_{h\rightarrow 0} \left(n\cdot x^{n-1} + \text { Terme mit } h^1 \text{ oder höher}  \right)            \\
+                         & = n x^{n-1}
+    \end{align*}
+
+
+
+
+
+
+    % Damit man den Grenzwert bestimmen kann, muss man in dieser Situation den Zähler so lange umformen, bis man ein $h$ ausklammern kann, um anschliessend zu kürzen. Zur Vereinfachung von $(x+h)^n$ verwenden wir das Pascalsche Dreieck, bzw. den binomischen Lehrsatz:
+    % \begin{align*}
+    %     (x+h)^n = \sum_{k=0}^n {n \choose k} x^{n-k} h^k
+    % \end{align*}
+
+    % Zur Erinnerung: Die Binomialkoeffizienten ${n\choose 0}, {n\choose 1}, {n\choose 2} , \cdots {n\choose n-1} , {n\choose n}$ entsprechen genau den Zahlen in der $n$-ten Zeile des pascalschen Dreieck.
+
+    % Für die Ableitung der Potenzfunktion folgt:
+    % \begin{align*}
+    %     \frac{d}{dx} x^n &= \lim_{h\rightarrow 0}\frac{\left({n\choose 0} x^n + {n\choose 1} x^{n-1}h + {n\choose 2} x^{n-2}h^2 + \cdots {n\choose n-1} x h^{n-1} + {n\choose n} h^n \right)- x^n}{h} 
+    % \end{align*}
+
+    % Da ${n\choose 0}=1$ ist, heben sich die beiden Summanden in $x^n$ auf. Beim übriggebliebenen Zähler kann man anschliessend $h$ ausklammern:
+    % \begin{align*}
+    %     \frac{d}{dx} x^n &= \lim_{h\rightarrow 0} \frac{h \left({n\choose 1} x^{n-1} + {n\choose 2} x^{n-2}h + \cdots {n\choose n-1} x h^{n-2} + {n\choose n} h^{n-1} \right)}{h} \\
+    %                     &= \lim_{h\rightarrow 0} \left({n\choose 1} x^{n-1} + {n\choose 2} x^{n-2}h + \cdots {n\choose n-1} x h^{n-2} + {n\choose n} h^{n-1} \right) \\
+    %                     &= {n\choose 1} x^{n-1}
+    % \end{align*}
+
+    % Da schliesslich ${n\choose 1}=n$ ist, folgt die Behauptung.
+\end{proof}
+
+\emph{Behauptung 2:} Seien $f$ und $g$ zwei differenzierbare Funktionen. Dann gilt
+$$\frac{d}{dx} \left(f(x)+g(x)\right) = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)$$
+\begin{proof}
+    Sei $s(x)=f(x)+g(x)$ die Summe der beiden Funktionen. Für die Ableitung von s gilt:
+    \begin{align*}
+        \frac{d}{dx}s(x) & = \lim_{h\rightarrow0} \frac{s(x+h)-s(x)}{h}               \\
+                         & = \lim_{h\rightarrow0} \frac{f(x+h)+g(x+h)-(f(x)+g(x))}{h}
+    \end{align*}
+    Durch geschicktes Umformen lassen sich die $f$-Terme von den $g$-Termen trennen:
+    \begin{align*}
+        \frac{d}{dx} s(x) & = \lim_{h\rightarrow0} \frac{f(x+h)-f(x) +g(x+h)-g(x)}{h}                       \\
+                          & = \lim_{h\rightarrow0}\left(\frac{f(x+h)-f(x)}{h} +\frac{g(x+h)-g(x)}{h}\right)
+    \end{align*}
+    Nun verwenden wir den Grenzwertsatz, wonach der Grenzwert einer Summe die Summe der Grenzwerte der einzelnen Summanden ist (sofern letztere existieren, was hier der Fall ist, weil die beiden Funktionen differenzierbar sind):
+    \begin{align*}
+        \frac{d}{dx} s(x) & =\lim_{h\rightarrow0}\left(\frac{f(x+h)-f(x)}{h} +\frac{g(x+h)-g(x)}{h}\right)                                    \\
+                          & = \lim_{h\rightarrow0}\left(\frac{f(x+h)-f(x)}{h}\right) + \lim_{h\rightarrow0}\left(\frac{g(x+h)-g(x)}{h}\right) \\
+                          & = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)
+    \end{align*}
+\end{proof}
+\emph{Behauptung 3:} Sei $f$ eine differenzierbare Funktion und $c\in \R$ eine Konstante. Dann gilt
+$$\frac{d}{dx}\left(c\cdot f(x)\right) = c\cdot \frac{d}{dx} f(x)$$
+\begin{proof}
+    Sei $v(x) = c\cdot f(x)$. Dann gilt für die Ableitung von $v$:
+    \begin{align*}
+        \frac{d}{dx} v(x) & =\lim_{h\rightarrow0} \frac{v(x+h)-v(x)}{h}                       \\
+                          & = \lim_{h\rightarrow0} \frac{c\cdot f(x+h)-c\cdot f(x)}{h}        \\
+                          & =\lim_{h\rightarrow0} \left( c\cdot \frac{f(x+h)-f(x)}{h} \right) \\
+                          & = c\cdot \left(\lim_{h\rightarrow0} \frac{f(x+h)-f(x)}{h}\right)  \\
+                          & = c\cdot \frac{d}{dx}f(x)
+    \end{align*}
+\end{proof}
+\clearpage
+
+\subsection{Weitere Ableitungsregeln}
+Mit den Regeln aus dem vorherigen Abschnitt können wir bereits eine grosse Klasse von Funktionen ableiten. Es gibt jedoch noch viele Funktionen, die nicht in diese Klasse fallen. Ziel ist am Ende, dass wir alle Funktionen ableiten können, die wir in der Schule kennenlernen. Dazu benötigen wir noch einige weitere Ableitungsregeln.
+\subsubsection{Produkt- und Quotientenregel}
+Gegeben sind die beiden Funktionen $g(x)=x^2$ und $h(x)=x+1$.
+\begin{enumerate}
+    \item Bestimmen Sie die Ableitung der folgenden Funktionen.
+          \begin{enumerate}
+              \item $y=g(x)$
+              \item $y=h(x)$
+              \item $y=2\cdot g(x)$
+              \item $y=g(x)+h(x)$
+              \item $y=g(x)\cdot h(x)$
+              \item $y=\frac{g(x)}{h(x)}$
+              \item $y=\frac{h(x)}{g(x)}$
+          \end{enumerate}
+    \item Eine Funktion lässt sich nicht ohne weiteres ableiten. Welche?
+
+    \item Gilt für das Produkt zweier Funktionen die Regel $\left(g(x)\cdot h(x)\right)'=g'(x)\cdot h'(x)$? Überprüfen Sie diese Vermutung anhand von Aufgabe 5.
+\end{enumerate}
+\clearpage
+\subsection{Motivation der Produktregel}
+
+Betrachten wir die Fläche eines Rechtecks. Sowohl die Länge \(l(x)\) als auch die Breite \(b(x)\) hängen von einer Variablen \(x\) ab. Die Fläche berechnet sich als
+
+\[
+    A(x)=l(x)\cdot b(x).
+\]
+
+Wie verändert sich die Fläche, wenn sich sowohl die Länge als auch die Breite ein wenig vergrössern?
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+
+        % Ursprüngliches Rechteck
+        \fill[gray!20] (0,0) rectangle (4,2);
+        \draw[thick] (0,0) rectangle (4,2);
+
+        % Zusätzliche Streifen
+        \fill[blue!20] (4,0) rectangle (4.6,2);
+        \fill[green!20] (0,2) rectangle (4,2.5);
+
+        % Kleine Ecke
+        \fill[red!30] (4,2) rectangle (4.6,2.5);
+
+        % Beschriftungen
+        \node at (2,1) {$A(x)$};
+        \node[right] at (4.6,1) {$l(x)\,\Delta b$};
+        \node[above] at (2,2.5) {$b(x)\,\Delta l$};
+
+    \end{tikzpicture}
+\end{center}
+
+Die Flächenzunahme setzt sich aus drei Teilen zusammen:
+
+\begin{itemize}
+    \item einem vertikalen Streifen,
+    \item einem horizontalen Streifen,
+    \item der kleinen Ecke oben rechts.
+\end{itemize}
+
+Für sehr kleine Änderungen ist die Fläche der Ecke vernachlässigbar. Daher gilt näherungsweise
+
+\[
+    \Delta A
+    \approx
+    l(x)\,\Delta b
+    +
+    b(x)\,\Delta l.
+\]
+
+Teilen wir beide Seiten durch \(\Delta x\), erhalten wir
+
+\[
+    \frac{\Delta A}{\Delta x}
+    \approx
+    l(x)\frac{\Delta b}{\Delta x}
+    +
+    b(x)\frac{\Delta l}{\Delta x}.
+\]
+
+Lässt man nun \(\Delta x\) gegen \(0\) gehen, erhält man die \textbf{Produktregel}:
+
+\[
+    \boxed{
+        A'(x)=l'(x)\,b(x)+l(x)\,b'(x)
+    }
+\]
+
+Allgemein schreibt man für zwei differenzierbare Funktionen \(f\) und \(g\):
+
+\[
+    \boxed{
+        (f\cdot g)'=f'\cdot g+f\cdot g'.
+    }
+\]
+Wir können nun bereits Summen und Vielfache von Potenzfunktion mit rationalen Exponenten einfach ableiten. Für Produkten und Quotienten solcher Funktionen kennen wir jedoch noch keine einfachen Regeln. Dies wollen wir in diesem Kapitel ändern.
+
+Um solche Verknüpfungen von Funktionen ableiten zu können, betrachten wir den Differenzialquotienten eines Produktes von zwei Funktionen: Sei also $p(x)=f(x)\cdot g(x)$. Dann lautet der Differenzialquotienten von $p$:
+$$\frac{dp}{dx}=\lim_{h\rightarrow 0} \frac{p(x+h)-p(x)}{h} = \lim_{h\rightarrow 0}\frac{f(x+h)\cdot g(x+h) - f(x)\cdot g(x)}{h}$$
+
+
+Es fällt auf, dass in dem Term „irgendwie“ die Ableitung von $f$ enthalten ist (wenn die $g$-Ausdrucke nicht stören würden) und dass „irgendwie“ die Ableitung von $g$ auch enthalten ist (wobei diesmal die $f$-Ausdrucke stören). Mit einer geschickten Termumformung kann man die $f$ und $g$-Terme voneinander trennen. Dazu Addieren Null im Zähler dazu.
+
+$$\frac{dp}{dx}=\lim_{h\rightarrow 0}\frac{f(x+h)\cdot g(x+h) + 0 - f(x)\cdot g(x)}{h}$$
+Die Null im Zähler schreiben wir nun so: $0=-f(x)\cdot g(x+h)+f(x)\cdot g(x+h)$ und erhalten:
+\begin{align*}
+    \frac{dp}{dx} & = \lim_{h\rightarrow 0}\frac{f(x+h)\cdot g(x+h) + [-f(x)\cdot g(x+h)+f(x)\cdot g(x+h)] - f(x)\cdot g(x)}{h}                                  \\
+                  & =  \lim_{h\rightarrow 0} \left(\frac{f(x+h)\cdot g(x+h)-f(x)\cdot g(x+h)}{h} + \frac{f(x)\cdot g(x+h)-f(x)\cdot g(x)}{h}\right)              \\
+                  & = \lim_{h\rightarrow 0} \left(\frac{f(x+h)-f(x)}{h}\cdot g(x+h)\right) + \lim_{h\rightarrow 0} \left(f(x) \cdot \frac{g(x+h)-g(x)}{h}\right) \\
+                  & =f'(x)\cdot g(x) + f(x)\cdot g'(x)
+\end{align*}
+\begin{theo}
+    [Die Produktregel]{}
+    Sei $p(x)=f(x)\cdot g(x)$. Sind $f$ und $g$ beide differenzierbar an der Stelle $x$, so ist auch $p$ differenzierbar an der Stelle $x$ und es gilt
+    $$p'(x)=f'(x) \cdot g(x)+f(x)\cdot g' (x)$$
+
+\end{theo}
+
+\begin{example}
+    Die Ableitung von Produkte ist jetzt möglich, ohne vorher auszumultiplizieren. Wir betrachten als Beispiel die Funktion $y=x^2(1-x^3)$ und lesen sie als Produkt von zwei einfachen Funktionen:
+    $$y=\underbrace{x^2}_{f(x)} \cdot \underbrace{(1-x^3)}_{g(x)}$$
+    mit der Produktregel folgt nun
+    % $$y'=\underbrace{2x}_{f'(x)} \cdot \underbrace{(1-x^3)}_{g(x)} + \underbrace{x^2}_{f(x)}\cdot \underbrace{{(-3x^2)}}_{g'(x)} = 2x(1-x^3)-3x^4$$
+    \kariert{8}
+\end{example}
+
+Auf ähnliche Art und Weise kann man eine Regel für die Ableitung von Quotienten herleiten:
+
+\begin{theo}[Die Quotientenregel]{}
+    Sei $q(x)=\frac{f(x)}{g(x)}$. Sind $f$ und $g$ beide an der Stelle $x \in \mathbb{D}_q$ differenzierbar, so ist auch $q$ differenzierbar an der Stelle $x$ und es gilt
+    $$q'(x)=\frac{g(x)f'(x)-f(x)g'(x)}{(g(x))^2}$$
+\end{theo}
+
+\begin{example}
+    {}{}
+    Das schwierige Beispiel in der Einführungsaufgabe lässt sich nun leicht ableiten:
+    $$y=\frac{x^2}{x+1} $$ %\Rightarrow y'=\frac{(x+1)\cdot 2x - x^2 \cdot 1}{(x+1)^2} = \frac{x^2+2x}{(x+1)^2}$$
+
+    \kariert{16}
+\end{example}
+
+\subsubsection*{Übungen}
+\begin{enumerate}
+    \item Leiten Sie die folgenden Funktionen mit der Produktregel ab:
+          \begin{enumerate}
+              \item $y= x^2(1-3x^2)$
+              \item $y= (2x+1)(3x^2-4)$
+              \item $y= (x^2+1) \cdot \sqrt{x}$
+          \end{enumerate}
+
+
+
+    \item Leiten Sie die folgenden Funktionen mit der Quotientenregel ab:
+          \begin{enumerate}
+              \item $y= \frac{4x+1}{x}$
+              \item $y= \frac{x}{4x+1}$
+              \item $y= \frac{x^2-x}{x^3+2}$
+          \end{enumerate}
+
+    \item Gegeben ist die Funktion \( f \) mit der Gleichung \( f(x) = (x^2 + 1)(3x - 4) \).
+          \begin{enumerate}
+              \item Bestimmen Sie die Ableitung von \( f \) ein erstes Mal wie folgt: Zuerst den Funktionsterm \( f(x) \) ausmultiplizieren und vereinfachen und dann ableiten.
+              \item Bestimmen Sie \( f' \) auch noch auf folgende Weise: Zuerst die Produktregel anwenden, dann erst ausmultiplizieren und vereinfachen.
+          \end{enumerate}
+
+    \item Gegeben ist die Funktion \( f \) mit der Gleichung \( f(x) = \frac{2x^3+4x^2+5x+6}{x^2} \).
+          \begin{enumerate}
+              \item Bestimmen Sie die Ableitung von \( f \) ein erstes Mal mit der Quotientenregel.
+              \item Bestimmen Sie \( f' \) auch noch auf folgende Weise: Zuerst Ausdividieren, dann die Ableitung der resultierenden Funktion bestimmen.
+              \item Wieso geht die zweite Methode bei der Funktion $f(x) = \frac{x^2+3x-1}{x+1}$ nicht?
+          \end{enumerate}
+
+
+    \item Beweisen Sie die Regel \( g(x) = k \cdot f(x) \Rightarrow g'(x) = k \cdot f'(x)\), indem Sie die Produktregel auf die Funktion $g(x) = k \cdot f(x)$ anwenden, wobei $k$ eine Konstante ist.
+
+          % \item Beweisen Sie mit der Quotientenregel, dass die Ableitung der Funktion $f(x) = x^{-n}$ mit $n\in \N$ gegeben ist durch $f'(x) = -n\cdot x^{-n-1}$.
+
+          % \item Sind \( f \) und \( g \) zwei Funktionen, so haben wir für die Ableitung ihres Produktes folgende Regel gefunden (Kurznotation):
+          %       \[
+          %           (f \cdot g)' = f' \cdot g + f \cdot g'.
+          %       \]
+          %       Entwickeln Sie eine entsprechende Regel für die Ableitung \( P' \) eines Produktes \( P \) aus drei Faktoren:
+          %       \[
+          %           P(x) = f(x) \cdot g(x) \cdot h(x); \quad \text{oder kurz: } P = f \cdot g \cdot h.
+          %       \]
+          %       Im Term für \( P' \) dürfen nur noch \( f \), \( g \) und \( h \) sowie deren Ableitungen \( f' \), \( g' \) und \( h' \) vorkommen.
+
+          %       Verwenden Sie die gefundene Regel, um die Funktion
+          %       \[
+          %           P(x) = x^3(x + 1)(x^2 - 1)
+          %       \]
+          %       abzuleiten. Der Term muss nicht vereinfacht werden.
+
+
+
+\end{enumerate}
+\clearpage
+\subsubsection*{Lösungen:}
+
+\begin{enumerate}
+    \item
+          \begin{enumerate}
+              \item \( y' = 2x(1 - 3x^2) + x^2(-6x) = -12x^3 +2x\)
+              \item \( y' = 2(3x^2-4)+(2x+1)\cdot 6x  = 18x^2 + 6x - 8 \)
+              \item \( y' = (x^2+1) \cdot \frac{1}{2\sqrt{x}} + 2x\sqrt{x} = \frac{5}{2} x\sqrt{x} +\frac{1}{2\sqrt{x}}\)
+          \end{enumerate}
+
+
+
+    \item
+          \begin{enumerate}
+              \item $\frac{x\cdot 4 - (4x+1)\cdot 1}{x^2} = -\frac{1}{x^2}$
+              \item $\frac{(4x+1)\cdot 1 - x\cdot 4}{(4x+1)^2} = \frac{1}{(4x+1)^2}$
+              \item $\frac{(x^3+2)(2x-1) - (x^2-x)(3x^2)}{(x^3+2)^2} = \frac{-x^4+2x^3+4x-2}{(x^3+2)^2}$
+          \end{enumerate}
+
+    \item Gegeben ist die Funktion \( f(x) = (x^2 + 1)(3x - 4) \).
+          \begin{enumerate}
+              \item $f(x) = 3x^3 - 4x^2 + 3x - 4 \Rightarrow f'(x) = 9x^2 - 8x + 3$
+              \item \( f'(x) = (x^2 + 1)(3) + (3x - 4)(2x) = 9x^2 - 8x + 3 \)
+          \end{enumerate}
+
+    \item Gegeben ist \( f(x) = \frac{2x^3+4x^2+5x+6}{x^2} \).
+          \begin{enumerate}
+              \item \( f'(x) = \frac{(6x^2 + 8x + 5)x^2 - (2x^3 + 4x^2 + 5x + 6)(2x)}{x^4} \)
+              \item \( f(x) = 2x + 4 + \frac{5}{x} + \frac{6}{x^2} \Rightarrow f'(x) = 2 - \frac{5}{x^2} - \frac{12}{x^3} \)
+              \item Ausdividieren gibt $f(x) = \frac{x^2+3x-1}{x+1} = \frac{x^2}{x+1}+\frac{3x}{x+1}-\frac{1}{x+1}$. Die einzelnen Summanden sind aber nicht von der Form $y=x^n$ und lassen sich somit nicht mit der Potenzenregel ableiten.
+
+                    \textbf{Wichtig:} Die folgende verführerische Umformung ist falsch $\frac{x^2+3x-1}{x+1} \neq \frac{x^2+3x-1}{x} + \frac{x^2+3x-1}{1}$  \end{enumerate}
+
+
+
+    \item Weil $k$ konstant ist, gilt $\frac{d}{dx}k = 0$. Damit lautet die Produktregel
+          $$ g(x) = k \cdot f(x) \Rightarrow g'(x) = 0 \cdot f(x) + k \cdot f'(x) $$
+
+          % \item \( f(x) = x^{-n} = \frac{1}{x^n}\). Die Ableitung des Zählers ist $\frac{d}{dx}1 = 0$. Damit lautet die Quotientenregel:
+          %       $$f'(x) = \frac{x^n \cdot 0 - 1\cdot n x^{n-1}}{(x^n)^2} = -\frac{nx^{n-1}}{x^{2n}} = -n x^{n-1-2n} = -n \cdot x^{-n-1}$$
+
+          % \item Für \( P = f \cdot g \cdot h \) gilt:
+          %       \[
+          %           P' = f'gh + fg'h + fgh'
+          %       \]
+          %       Für \( P(x) = x^3(x + 1)(x^2 - 1) \) also:
+          %       \[
+          %           P'(x) = 3x^2(x+1)(x^2-1) + x^3(1)(x^2-1) + x^3(x+1)(2x)
+          %       \]
+\end{enumerate}
+\clearpage
