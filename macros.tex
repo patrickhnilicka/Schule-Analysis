@@ -168,7 +168,17 @@
   \par\addvspace{0.75\baselineskip}% Mindestabstand unterhalb
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Beispiel in Absatz (mit erlaubtem Seitenumbruch)
+\newenvironment{examplebreak}{%
+  \par\addvspace{0.75\baselineskip}% Mindestabstand oberhalb
+  \noindent
+  \refstepcounter{example}%
+  \strut \textbf{Beispiel~\theexample}\\
+  }{%
+  \par\addvspace{0.75\baselineskip}% Mindestabstand unterhalb
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \newenvironment{chapquote}[2][2em]
 {\setlength{\@tempdima}{#1}%
